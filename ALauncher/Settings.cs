@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.IO;
+using System.Text;
 using System.Xml.Serialization;
 
 namespace ALauncher
@@ -21,17 +22,27 @@ namespace ALauncher
         public const string FILE_NAME = "Settings.xml";
 
         private bool _hasChanges = false;
-        private string? _sporePath, _sporeEP1Path, _mySporeCreationsPath, _modAPIPath;
+        private string? _sporePath, _sporeEP1Path,
+            _mySporeCreationsPath, _modAPIPath,
+            _mainDirectory;
 
         public string SporePath
         {
             get => _sporePath ?? string.Empty;
-            set => SetValue(ref _sporePath, value);
+            set
+            {
+                SetValue(ref _sporePath, value);
+                MainSporePath = value;
+            }
         }
         public string SporeEP1Path
         {
             get => _sporeEP1Path ?? string.Empty;
-            set => SetValue(ref _sporeEP1Path, value);
+            set
+            {
+                SetValue(ref _sporeEP1Path, value);
+                MainSporePath = value;
+            }
         }
         public string MySporeCreationsPath
         {
@@ -43,6 +54,15 @@ namespace ALauncher
             get => _modAPIPath ?? string.Empty;
             set => SetValue(ref _modAPIPath, value);
         }
+        public string MainSporePath
+        {
+            get => _mainDirectory ?? string.Empty;
+            private set
+            {
+                DirectoryInfo dir = new(value);
+                _mainDirectory = dir.Parent?.ToString();
+            }
+        }
 
         public int SelectedGameIndex { get; set; } = 0;
 
@@ -51,7 +71,7 @@ namespace ALauncher
             const string KEY_NAME = "datadir";
 
             SporePath = GetRegistryValue("spore", KEY_NAME) as string ?? string.Empty;
-            SporeEP1Path = GetRegistryValue("SPORE_EP1", KEY_NAME) as string ?? string.Empty;
+            _sporeEP1Path = GetRegistryValue("SPORE_EP1", KEY_NAME) as string;
 
             MySporeCreationsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
                 "\\" + GetRegistryValue("spore", "playerdir");

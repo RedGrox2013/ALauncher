@@ -41,7 +41,10 @@ namespace ALauncher.Pages
             {
                 StringBuilder sb = new(pathParts[0]);
                 for (int i = 1; i < pathParts.Length - 1; i++)
+                {
                     sb.Append(pathParts[i]);
+                    sb.Append('\\');
+                }
                 _settings.ModAPIPath = sb.ToString();
             }
             else

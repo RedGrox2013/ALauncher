@@ -1,0 +1,64 @@
+﻿<Page x:Class="ALauncher.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ALauncher.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="585" d:DesignWidth="1066"
+      Title="MainPage">
+
+    <Grid>
+        <ScrollViewer>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1"
+                      VerticalAlignment="Top"
+                      Height="585"
+                      Width="200">
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#FF5AACD8" Offset="0.0"/>
+                            <GradientStop Color="#FF4385A8" Offset="0.35"/>
+                            <GradientStop Color="#FF0E2C3C" Offset="0.85"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontFamily="../Fonts/#PF BeauSans Pro"
+                               HorizontalAlignment="Center"
+                               Margin="0,10,0,0"
+                               Foreground="White"
+                               FontSize="27"
+                               Text="ALAUNCHER"/>
+                    <TextBlock Grid.Row="1"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontFamily="Candara Light"
+                               Foreground="White"
+                               FontSize="15"
+                               Text="ЛАУНЧЕР ДЛЯ SPORE"/>
+                </Grid>
+
+                <!--<Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Name="infoBlock"
+                           Grid.Row="1"
+                           Background="White"
+                           Margin="20, 3"
+                           Text="Тут будет что-то написано..."/>
+                </Grid>-->
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

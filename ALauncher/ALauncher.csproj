@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <AssemblyVersion>0.1</AssemblyVersion>
+    <FileVersion>0.1</FileVersion>
+    <Authors>RedGrox</Authors>
+    <Description>Spore Launcher</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\LauncherFont.TTF" />
+    <None Remove="Images\Background.jpg" />
+    <None Remove="Images\creations-btn.png" />
+    <None Remove="Images\Dev.png" />
+    <None Remove="Images\files-btn.png" />
+    <None Remove="Images\modapi-icon.ico" />
+    <None Remove="Images\mods-btn.png" />
+    <None Remove="Images\save-btn.png" />
+    <None Remove="Images\settings-btn.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\LauncherFont.TTF" />
+    <Resource Include="Images\Background.jpg" />
+    <Resource Include="Images\creations-btn.png" />
+    <Resource Include="Images\Dev.png" />
+    <Resource Include="Images\files-btn.png" />
+    <Resource Include="Images\modapi-icon.ico" />
+    <Resource Include="Images\mods-btn.png" />
+    <Resource Include="Images\save-btn.png" />
+    <Resource Include="Images\settings-btn.png" />
+  </ItemGroup>
+
+</Project>

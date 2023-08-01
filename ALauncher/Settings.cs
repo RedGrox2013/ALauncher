@@ -59,6 +59,9 @@ namespace ALauncher
             get => _mainDirectory ?? string.Empty;
             private set
             {
+                if (string.IsNullOrEmpty(value))
+                    return;
+
                 DirectoryInfo dir = new(value);
                 _mainDirectory = dir.Parent?.ToString();
             }
@@ -79,9 +82,17 @@ namespace ALauncher
 
         public static void Deserialize()
         {
-            XmlSerializer serializer = new(typeof(Settings));
-            using var stream = File.OpenRead(FILE_NAME);
-            _instance = serializer.Deserialize(stream) as Settings;
+            try
+            {
+                XmlSerializer serializer = new(typeof(Settings));
+                using var stream = File.OpenRead(FILE_NAME);
+                _instance = serializer.Deserialize(stream) as Settings;
+            }
+            catch
+            {
+                if (File.Exists(FILE_NAME))
+                    File.Delete(FILE_NAME);
+            }
         }
 
         private static object? GetRegistryValue(string keyName, string valueName) =>

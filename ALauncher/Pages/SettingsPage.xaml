@@ -5,10 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ALauncher.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="530" d:DesignWidth="620"
+      d:DesignHeight="585" d:DesignWidth="1066"
       Title="SettingsPage">
 
-    <Grid Background="White">
+    
+    <Grid Background="White" Height="530" Width="620">
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="Auto"/>

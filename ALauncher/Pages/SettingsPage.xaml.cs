@@ -29,6 +29,7 @@ namespace ALauncher.Pages
 
             _parentWindow = parentWindow;
             _settings = Settings.Instance;
+            ModAPIPathBox.Text = _settings.ModAPIPath;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) =>

@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 namespace ALauncher
 {
     [Serializable]
-    internal class Settings
+    public class Settings
     {
         private static Settings? _instance;
         public static Settings Instance

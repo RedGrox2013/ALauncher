@@ -27,7 +27,7 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
             <TextBlock FontSize="17" VerticalAlignment="Center">Путь до ModAPI:</TextBlock>
-            <TextBox Name="ModAPIPathBox" Height="30" Width="430" Margin="3"/>
+            <TextBox Name="ModAPIPathBox" Height="30" Width="430" Margin="3" VerticalAlignment="Center"/>
         </StackPanel>
 
         <Image Source="../Images/Dev.png" Grid.Row="2"/>

@@ -21,18 +21,32 @@ namespace ALauncher.Pages
     public partial class SettingsPage : Page
     {
         private readonly MainWindow _parentWindow;
+        private readonly Settings _settings;
 
         public SettingsPage(MainWindow parentWindow)
         {
             InitializeComponent();
 
             _parentWindow = parentWindow;
+            _settings = Settings.Instance;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) =>
             _parentWindow.OpenMainPage();
 
-        private void SaveBtn_Click(object sender, RoutedEventArgs e) =>
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var pathParts = ModAPIPathBox.Text.Split('/', '\\');
+            if (pathParts[^1].ToLower() == "spore modapi launcher.exe")
+            {
+                StringBuilder sb = new(pathParts[0]);
+                for (int i = 1; i < pathParts.Length - 1; i++)
+                    sb.Append(pathParts[i]);
+                _settings.ModAPIPath = sb.ToString();
+            }
+            else
+                _settings.ModAPIPath = ModAPIPathBox.Text;
             Settings.Serialize();
+        }
     }
 }

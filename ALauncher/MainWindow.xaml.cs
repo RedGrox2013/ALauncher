@@ -29,7 +29,8 @@ namespace ALauncher
 
         private void LaunchGameBtn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(_settings.SporePath + "\n" + _settings.SporeEP1Path + "\n" + _settings.MySporeCreationsPath);
+            MessageBox.Show(_settings.SporePath + "\n" + _settings.SporeEP1Path + "\n" +
+                _settings.MySporeCreationsPath + "\n" + _settings.ModAPIPath);
         }
 
         private void FilesBtn_Click(object sender, RoutedEventArgs e) =>

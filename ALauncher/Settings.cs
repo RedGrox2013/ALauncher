@@ -54,7 +54,7 @@ namespace ALauncher
             get => _modAPIPath ?? string.Empty;
             set => SetValue(ref _modAPIPath, value);
         }
-        public string MainSporePath
+        [XmlIgnore] public string MainSporePath
         {
             get => _mainDirectory ?? string.Empty;
             private set

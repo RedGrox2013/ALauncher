@@ -20,8 +20,8 @@ namespace ALauncher
         }
 
         public const string FILE_NAME = "Settings.xml";
+        public const string MODAPI_NAME = "Spore ModAPI Launcher.exe";
 
-        private bool _hasChanges = false;
         private string? _sporePath, _sporeEP1Path,
             _mySporeCreationsPath, _modAPIPath,
             _mainDirectory;
@@ -31,7 +31,7 @@ namespace ALauncher
             get => _sporePath ?? string.Empty;
             set
             {
-                SetValue(ref _sporePath, value);
+                _sporePath = value;
                 MainSporePath = value;
             }
         }
@@ -40,19 +40,19 @@ namespace ALauncher
             get => _sporeEP1Path ?? string.Empty;
             set
             {
-                SetValue(ref _sporeEP1Path, value);
+                _sporeEP1Path = value;
                 MainSporePath = value;
             }
         }
         public string MySporeCreationsPath
         {
             get => _mySporeCreationsPath ?? string.Empty;
-            set => SetValue(ref _mySporeCreationsPath, value);
+            set => _mySporeCreationsPath = value;
         }
         public string ModAPIPath
         {
             get => _modAPIPath ?? string.Empty;
-            set => SetValue(ref _modAPIPath, value);
+            set => _modAPIPath = value;
         }
         [XmlIgnore] public string MainSporePath
         {
@@ -66,6 +66,8 @@ namespace ALauncher
                 _mainDirectory = dir.Parent?.ToString();
             }
         }
+
+        public string LineArgumetns { get; set; } = string.Empty;
 
         public int SelectedGameIndex { get; set; } = 0;
 
@@ -100,18 +102,12 @@ namespace ALauncher
 
         public static void Serialize()
         {
-            if (_instance == null || !_instance._hasChanges)
+            if (_instance == null)
                 return;
 
             XmlSerializer serializer = new(typeof(Settings));
             using var stream = File.Create(FILE_NAME);
             serializer.Serialize(stream, _instance);
-        }
-
-        private void SetValue<T>(ref T param, T value)
-        {
-            param = value;
-            _hasChanges = true;
         }
     }
 }

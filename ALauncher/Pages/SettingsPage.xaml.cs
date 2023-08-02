@@ -30,7 +30,9 @@ namespace ALauncher.Pages
 
             _parentWindow = parentWindow;
             _settings = Settings.Instance;
+
             ModAPIPathBox.Text = _settings.ModAPIPath;
+            LineArgumentsBox.Text = _settings.LineArgumetns;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) =>
@@ -39,9 +41,11 @@ namespace ALauncher.Pages
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             DirectoryInfo? dir = new(ModAPIPathBox.Text);
-            if (dir.Name.ToLower() == "spore modapi launcher.exe")
+            if (dir.Name == Settings.MODAPI_NAME)
                 dir = dir.Parent;
+
             _settings.ModAPIPath = dir?.FullName ?? string.Empty;
+            _settings.LineArgumetns = LineArgumentsBox.Text;
 
             Settings.Serialize();
             _parentWindow.OpenMainPage();

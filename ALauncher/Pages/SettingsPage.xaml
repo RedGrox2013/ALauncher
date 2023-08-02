@@ -14,11 +14,14 @@
             <RowDefinition Height="25"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <StackPanel Background="#FF3CAAE8" Orientation="Horizontal">
-            <Button Background="#FF3CAAE8" Width="60" Click="Button_Click">⬅️</Button>
+            <Button Background="#FF3CAAE8" Width="60" Click="Button_Click">
+                ⬅️
+            </Button>
             <TextBlock Text="Настройка/Дополнительно"
                        FontSize="20"
                        VerticalAlignment="Center"
@@ -27,15 +30,33 @@
                        Margin="150,0,0,0"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
-            <TextBlock FontSize="17" VerticalAlignment="Center">Путь до ModAPI:</TextBlock>
-            <TextBox Name="ModAPIPathBox" Height="30" Width="430" Margin="3" VerticalAlignment="Center"/>
+            <TextBlock FontSize="17" VerticalAlignment="Center">
+                Путь до ModAPI:
+            </TextBlock>
+            <TextBox Name="ModAPIPathBox"
+                     Height="30"
+                     Width="430"
+                     Margin="3"
+                     VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10">
+            <TextBlock FontSize="17" VerticalAlignment="Center">
+                Spore аргументы:
+            </TextBlock>
+            <TextBox Name="LineArgumentsBox"
+                     Height="30"
+                     Width="430"
+                     Margin="3"
+                     VerticalAlignment="Center"/>
         </StackPanel>
 
-        <Image Source="../Images/Dev.png" Grid.Row="2"/>
+        <Image Source="../Images/Dev.png" Grid.Row="3"/>
 
         <!--Кнопочки-->
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Height="33" HorizontalAlignment="Center">
-            <Button Name="SaveBtn" Width="170" FontSize="18" Click="SaveBtn_Click">Сохранить</Button>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Height="33" HorizontalAlignment="Center">
+            <Button Name="SaveBtn" Width="170" FontSize="18" Click="SaveBtn_Click">
+                Сохранить
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

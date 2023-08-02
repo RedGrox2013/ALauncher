@@ -53,6 +53,7 @@
                       Height="25"
                       Grid.Column="1"
                       SelectedIndex="0"
+                      SelectionChanged="GamesList_SelectionChanged"
                       ToolTip="Игра для запуска">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="Images/modapi-icon.ico" Width="20" Height="20"/>

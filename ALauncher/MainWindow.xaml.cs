@@ -25,13 +25,36 @@ namespace ALauncher
             if (File.Exists(Settings.FILE_NAME))
                 Settings.Deserialize();
             _settings = Settings.Instance;
+            GamesList.SelectedIndex = _settings.SelectedGameIndex;
         }
 
         private void LaunchGameBtn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(_settings.SporePath + "\n" + _settings.SporeEP1Path + "\n" +
-                _settings.MySporeCreationsPath + "\n" + _settings.ModAPIPath + "\n" +
-                _settings.MainSporePath, "Тест путей");
+            string processName = _settings.MainSporePath;
+            switch (GamesList.SelectedIndex)
+            {
+                case 0:
+                    if (string.IsNullOrEmpty(_settings.ModAPIPath))
+                    {
+                        MessageBox.Show("Пожалуйста, укажите путь до SporeModAPI. " +
+                            "Если у вас не установлен Spore ModAPI Launcher," +
+                            "вы можете сделать это в открывшемся окне", "Проверьте настройки",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                        SettingsBtn_Click(sender, e);
+                        Process.Start("explorer.exe",
+                            "http://davoonline.com/sporemodder/rob55rod/ModAPI/Public/index.html");
+                        return;
+                    }
+                    processName = _settings.ModAPIPath + "\\" + Settings.MODAPI_NAME;
+                    break;
+                case 1:
+                    processName += "\\SporebinEP1\\SporeApp.exe";
+                    break;
+                case 2:
+                    processName += "\\SporeBin\\SporeApp.exe";
+                    break;
+            }
+            Process.Start(processName, _settings.LineArgumetns);
         }
 
         private void FilesBtn_Click(object sender, RoutedEventArgs e) =>
@@ -54,6 +77,15 @@ namespace ALauncher
         {
             _settingsPage ??= new SettingsPage(this);
             MainFrame.Content = _settingsPage;
+        }
+
+        private void GamesList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (!IsInitialized)
+                return;
+
+            _settings.SelectedGameIndex = GamesList.SelectedIndex;
+            Settings.Serialize();
         }
     }
 }

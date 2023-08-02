@@ -1,7 +1,13 @@
 ﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace ALauncher.Pages
 {
@@ -18,7 +24,7 @@ namespace ALauncher.Pages
 
             _settings = Settings.Instance;
             ModAPIPathBox.Text = _settings.ModAPIPath;
-            LineArgumentsBox.Text = _settings.LineArgumetns;
+            LineArgumentsBox.Text = _settings.LineArguments;
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e) =>
@@ -26,12 +32,14 @@ namespace ALauncher.Pages
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            DirectoryInfo? dir = new(ModAPIPathBox.Text);
-            if (dir.Name == Settings.MODAPI_NAME)
-                dir = dir.Parent;
-
-            _settings.ModAPIPath = dir?.FullName ?? string.Empty;
-            _settings.LineArgumetns = LineArgumentsBox.Text;
+            if (!string.IsNullOrEmpty(ModAPIPathBox.Text))
+            {
+                DirectoryInfo? dir = new(ModAPIPathBox.Text);
+                if (dir.Name == Settings.MODAPI_NAME)
+                    dir = dir.Parent;
+                _settings.ModAPIPath = dir?.FullName ?? string.Empty;
+            }
+            _settings.LineArguments = LineArgumentsBox.Text;
 
             Settings.Serialize();
             BackBtn_Click(sender, e);

@@ -29,16 +29,17 @@ namespace ALauncher
         public string SporePath
         {
             get => _sporePath ?? string.Empty;
-            set
+            private set
             {
                 _sporePath = value;
                 MainSporePath = value;
             }
         }
+        //public string SporeAppPath { get; private set; }
         public string SporeEP1Path
         {
             get => _sporeEP1Path ?? string.Empty;
-            set
+            private set
             {
                 _sporeEP1Path = value;
                 MainSporePath = value;
@@ -47,12 +48,12 @@ namespace ALauncher
         public string MySporeCreationsPath
         {
             get => _mySporeCreationsPath ?? string.Empty;
-            set => _mySporeCreationsPath = value;
+            private set => _mySporeCreationsPath = value;
         }
         public string ModAPIPath
         {
             get => _modAPIPath ?? string.Empty;
-            set => _modAPIPath = value;
+            private set => _modAPIPath = value;
         }
         [XmlIgnore] public string MainSporePath
         {
@@ -67,7 +68,7 @@ namespace ALauncher
             }
         }
 
-        public string LineArgumetns { get; set; } = string.Empty;
+        public string LineArguments { get; set; } = string.Empty;
 
         public int SelectedGameIndex { get; set; } = 0;
 
@@ -80,6 +81,12 @@ namespace ALauncher
 
             MySporeCreationsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
                 "\\" + GetRegistryValue("spore", "playerdir");
+
+            //if (_mainDirectory == null)
+            //    return;
+
+            //DirectoryInfo dir = new(_mainDirectory);
+            // Доделать поиск exe-шника
         }
 
         public static void Deserialize()

@@ -37,7 +37,7 @@ namespace ALauncher
                     if (string.IsNullOrEmpty(_settings.ModAPIPath))
                     {
                         MessageBox.Show("Пожалуйста, укажите путь до SporeModAPI. " +
-                            "Если у вас не установлен Spore ModAPI Launcher," +
+                            "Если у вас не установлен Spore ModAPI Launcher, " +
                             "вы можете сделать это в открывшемся окне", "Проверьте настройки",
                             MessageBoxButton.OK, MessageBoxImage.Error);
                         SettingsBtn_Click(sender, e);
@@ -53,15 +53,17 @@ namespace ALauncher
                 case 2:
                     processName += "\\SporeBin\\SporeApp.exe";
                     break;
+                default:
+                    return;
             }
-            Process.Start(processName, _settings.LineArgumetns);
+            Process.Start(processName, _settings.LineArguments);
         }
 
         private void FilesBtn_Click(object sender, RoutedEventArgs e) =>
-            Process.Start("explorer.exe", _settings.MainSporePath);
+            Process.Start("explorer.exe", Settings.Instance.SporeEP1Path);
 
         private void CreationsBtn_Click(object sender, RoutedEventArgs e) =>
-            Process.Start("explorer.exe", _settings.MySporeCreationsPath);
+            Process.Start("explorer.exe", Settings.Instance.MySporeCreationsPath);
 
         private void SavesBtn_Click(object sender, RoutedEventArgs e)
         {

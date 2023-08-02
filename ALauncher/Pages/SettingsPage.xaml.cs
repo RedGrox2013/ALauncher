@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,20 +38,13 @@ namespace ALauncher.Pages
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            var pathParts = ModAPIPathBox.Text.Split('/', '\\');
-            if (pathParts[^1].ToLower() == "spore modapi launcher.exe")
-            {
-                StringBuilder sb = new(pathParts[0]);
-                for (int i = 1; i < pathParts.Length - 1; i++)
-                {
-                    sb.Append(pathParts[i]);
-                    sb.Append('\\');
-                }
-                _settings.ModAPIPath = sb.ToString();
-            }
-            else
-                _settings.ModAPIPath = ModAPIPathBox.Text;
+            DirectoryInfo? dir = new(ModAPIPathBox.Text);
+            if (dir.Name.ToLower() == "spore modapi launcher.exe")
+                dir = dir.Parent;
+            _settings.ModAPIPath = dir?.FullName ?? string.Empty;
+
             Settings.Serialize();
+            _parentWindow.OpenMainPage();
         }
     }
 }

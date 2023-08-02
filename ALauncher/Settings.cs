@@ -67,7 +67,7 @@ namespace ALauncher
             }
         }
 
-        public string LineArgumetns { get; set; } = string.Empty;
+        public string LineArguments { get; set; } = string.Empty;
 
         public int SelectedGameIndex { get; set; } = 0;
 

@@ -59,11 +59,11 @@
                     <TextBlock Margin="3" VerticalAlignment="Center">Spore ModAPI Launcher</TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="Images/modapi-icon.ico" Width="20" Height="20"/>
+                    <Image Source="Images/ga-icon.ico" Width="20" Height="20"/>
                     <TextBlock Margin="3" VerticalAlignment="Center">Spore GA</TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="Images/modapi-icon.ico" Width="20" Height="20"/>
+                    <Image Source="Images/vanilla-icon.ico" Width="20" Height="20"/>
                     <TextBlock Margin="3" VerticalAlignment="Center">Spore</TextBlock>
                 </StackPanel>
             </ComboBox>

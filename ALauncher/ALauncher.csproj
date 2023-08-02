@@ -17,10 +17,12 @@
     <None Remove="Images\creations-btn.png" />
     <None Remove="Images\Dev.png" />
     <None Remove="Images\files-btn.png" />
+    <None Remove="Images\ga-icon.ico" />
     <None Remove="Images\modapi-icon.ico" />
     <None Remove="Images\mods-btn.png" />
     <None Remove="Images\save-btn.png" />
     <None Remove="Images\settings-btn.png" />
+    <None Remove="Images\vanilla-icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,10 +35,12 @@
     <Resource Include="Images\creations-btn.png" />
     <Resource Include="Images\Dev.png" />
     <Resource Include="Images\files-btn.png" />
+    <Resource Include="Images\ga-icon.ico" />
     <Resource Include="Images\modapi-icon.ico" />
     <Resource Include="Images\mods-btn.png" />
     <Resource Include="Images\save-btn.png" />
     <Resource Include="Images\settings-btn.png" />
+    <Resource Include="Images\vanilla-icon.ico" />
   </ItemGroup>
 
 </Project>

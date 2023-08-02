@@ -65,16 +65,16 @@ namespace ALauncher
 
         private void SavesBtn_Click(object sender, RoutedEventArgs e)
         {
-            _savesPage ??= new SavesPage(this);
+            _savesPage ??= new SavesPage();
             MainFrame.Content = _savesPage;
         }
 
-        public void OpenMainPage() =>
-            MainFrame.Content = _mainPage;
+        //public void OpenMainPage() =>
+        //    MainFrame.Content = _mainPage;
 
         private void SettingsBtn_Click(object sender, RoutedEventArgs e)
         {
-            _settingsPage ??= new SettingsPage(this);
+            _settingsPage ??= new SettingsPage();
             MainFrame.Content = _settingsPage;
         }
 

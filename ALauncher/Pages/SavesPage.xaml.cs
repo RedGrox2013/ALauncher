@@ -7,15 +7,12 @@ namespace ALauncher.Pages
     /// </summary>
     public partial class SavesPage : Page
     {
-        private readonly MainWindow _parentWindow;
-
-        public SavesPage(MainWindow parentWindow)
+        public SavesPage()
         {
             InitializeComponent();
-            _parentWindow = parentWindow;
         }
 
         private void OkBtn_Click(object sender, System.Windows.RoutedEventArgs e) =>
-            _parentWindow.OpenMainPage();
+            NavigationService.GoBack();
     }
 }

@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Background="#FF3CAAE8" Orientation="Horizontal">
-            <Button Background="#FF3CAAE8" Width="60" Click="Button_Click">
+            <Button Background="#FF3CAAE8" Width="60" Click="BackBtn_Click">
                 ⬅️
             </Button>
             <TextBlock Text="Настройка/Дополнительно"

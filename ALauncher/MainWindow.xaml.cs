@@ -58,10 +58,10 @@ namespace ALauncher
         }
 
         private void FilesBtn_Click(object sender, RoutedEventArgs e) =>
-            Process.Start("explorer.exe", Settings.Instance.SporeEP1Path);
+            Process.Start("explorer.exe", _settings.MainSporePath);
 
         private void CreationsBtn_Click(object sender, RoutedEventArgs e) =>
-            Process.Start("explorer.exe", Settings.Instance.MySporeCreationsPath);
+            Process.Start("explorer.exe", _settings.MySporeCreationsPath);
 
         private void SavesBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -69,7 +69,6 @@ namespace ALauncher
             MainFrame.Content = _savesPage;
         }
 
-        // Сделать отдельный класс для изменения страницы
         public void OpenMainPage() =>
             MainFrame.Content = _mainPage;
 

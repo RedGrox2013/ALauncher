@@ -16,6 +16,8 @@ namespace ALauncher
 
         private readonly Settings _settings;
 
+        private const string EXPLORER = "explorer.exe";
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,7 +43,7 @@ namespace ALauncher
                             "вы можете сделать это в открывшемся окне", "Проверьте настройки",
                             MessageBoxButton.OK, MessageBoxImage.Error);
                         SettingsBtn_Click(sender, e);
-                        Process.Start("explorer.exe",
+                        Process.Start(EXPLORER,
                             "http://davoonline.com/sporemodder/rob55rod/ModAPI/Public/index.html");
                         return;
                     }
@@ -60,10 +62,10 @@ namespace ALauncher
         }
 
         private void FilesBtn_Click(object sender, RoutedEventArgs e) =>
-            Process.Start("explorer.exe", Settings.Instance.SporeEP1Path);
+            Process.Start(EXPLORER, Settings.Instance.SporeEP1Path);
 
         private void CreationsBtn_Click(object sender, RoutedEventArgs e) =>
-            Process.Start("explorer.exe", Settings.Instance.MySporeCreationsPath);
+            Process.Start(EXPLORER, Settings.Instance.MySporeCreationsPath);
 
         private void SavesBtn_Click(object sender, RoutedEventArgs e)
         {

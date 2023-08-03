@@ -69,6 +69,7 @@ namespace ALauncher
         }
 
         public string LineArguments { get; set; } = string.Empty;
+        public bool IsSteamVersion { get; set; }
 
         public int SelectedGameIndex { get; set; } = 0;
 

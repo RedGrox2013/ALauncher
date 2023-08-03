@@ -8,6 +8,14 @@
         Title="Добро пожаловать в ALauncher!"
         Height="401" Width="622" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
     </Grid>
 </Window>

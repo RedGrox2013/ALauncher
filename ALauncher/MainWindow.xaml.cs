@@ -10,7 +10,6 @@ namespace ALauncher
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly MainPage _mainPage;
         private SavesPage? _savesPage;
         private SettingsPage? _settingsPage;
 
@@ -22,12 +21,18 @@ namespace ALauncher
         {
             InitializeComponent();
 
-            MainFrame.Content = _mainPage = new MainPage();
+            MainFrame.Content = new MainPage();
 
             if (File.Exists(Settings.FILE_NAME))
                 Settings.Deserialize();
             _settings = Settings.Instance;
             GamesList.SelectedIndex = _settings.SelectedGameIndex;
+
+            if (_settings.IsFirstStart)
+            {
+                new WelcomeWindow().ShowDialog();
+                _settings.IsFirstStart = false;
+            }
         }
 
         private void LaunchGameBtn_Click(object sender, RoutedEventArgs e)

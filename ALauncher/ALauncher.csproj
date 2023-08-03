@@ -23,6 +23,7 @@
     <None Remove="Images\save-btn.png" />
     <None Remove="Images\settings-btn.png" />
     <None Remove="Images\vanilla-icon.ico" />
+    <None Remove="Images\welcome.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +37,7 @@
     <Resource Include="Images\mods-btn.png" />
     <Resource Include="Images\save-btn.png" />
     <Resource Include="Images\settings-btn.png" />
+    <Resource Include="Images\welcome.png" />
     <Resource Include="Images\vanilla-icon.ico" />
   </ItemGroup>
 

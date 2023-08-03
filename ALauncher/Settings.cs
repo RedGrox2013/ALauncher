@@ -29,7 +29,7 @@ namespace ALauncher
         public string SporePath
         {
             get => _sporePath ?? string.Empty;
-            private set
+            set
             {
                 _sporePath = value;
                 MainSporePath = value;
@@ -39,7 +39,7 @@ namespace ALauncher
         public string SporeEP1Path
         {
             get => _sporeEP1Path ?? string.Empty;
-            private set
+            set
             {
                 _sporeEP1Path = value;
                 MainSporePath = value;
@@ -48,12 +48,12 @@ namespace ALauncher
         public string MySporeCreationsPath
         {
             get => _mySporeCreationsPath ?? string.Empty;
-            private set => _mySporeCreationsPath = value;
+            set => _mySporeCreationsPath = value;
         }
         public string ModAPIPath
         {
             get => _modAPIPath ?? string.Empty;
-            private set => _modAPIPath = value;
+            set => _modAPIPath = value;
         }
         [XmlIgnore] public string MainSporePath
         {

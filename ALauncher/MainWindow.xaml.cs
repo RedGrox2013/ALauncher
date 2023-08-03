@@ -29,10 +29,7 @@ namespace ALauncher
             GamesList.SelectedIndex = _settings.SelectedGameIndex;
 
             if (_settings.IsFirstStart)
-            {
                 new WelcomeWindow().ShowDialog();
-                _settings.IsFirstStart = false;
-            }
         }
 
         private void LaunchGameBtn_Click(object sender, RoutedEventArgs e)

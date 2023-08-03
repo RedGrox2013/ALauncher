@@ -38,18 +38,30 @@
             <TextBlock Text="Путь до ModAPI:"
                        Foreground="White"
                        FontSize="20"/>
-            <TextBox Name="ModAPIPathBox"
-                     Height="30"
-                     FontSize="20"/>
+            <DockPanel Name="ModAPIPathDock" LastChildFill="True">
+                <Button Name="BrowseBtn"
+                        Margin="5,0,0,0"
+                        DockPanel.Dock="Right"
+                        Background="#FF383B42"
+                        Foreground="White"
+                        Click="BrowseBtn_Click"
+                        Content="Обзор"/>
+                <TextBox Name="ModAPIPathBox"
+                         Height="30"
+                         DockPanel.Dock="Left"
+                         FontSize="20"/>
+            </DockPanel>
             <CheckBox Name="NoModAPICheck"
                       Margin="5"
                       Foreground="White"
+                      Checked="NoModAPICheck_Checked"
+                      Unchecked="NoModAPICheck_Unchecked"
                       Content="У меня нет ModAPI"/>
             <CheckBox Name="IsSteamVersionCheck"
                       Foreground="White"
-                      FontSize="20"
-                      Margin="5"
-                      Content="Steam версия"/>
+                      Margin="5,10,0,0"
+                      ToolTip="Поставьте галочку сюда, если у вас стимовская версия игры"
+                      Content="Steam-овская версия игры"/>
             <TextBlock Margin="5" Foreground="White">
                 Изменить свой выбор можно будет в
                 настройках лаунчера.
@@ -62,5 +74,15 @@
                 </Hyperlink>
             </TextBlock>
         </StackPanel>
+        <Button Name="SaveBtn"
+                Grid.ColumnSpan="2"
+                Grid.Row="2"
+                Margin="25"
+                Height="30"
+                Width="120"
+                Background="#FF31CF61"
+                Foreground="White"
+                Click="SaveBtn_Click"
+                Content="Продолжить"/>
     </Grid>
 </Window>

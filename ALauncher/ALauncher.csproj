@@ -9,6 +9,7 @@
     <FileVersion>0.1</FileVersion>
     <Authors>RedGrox</Authors>
     <Description>Spore Launcher</Description>
+    <UseWindowsForms>True</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>

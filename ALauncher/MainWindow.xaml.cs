@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using ALauncher.Pages;
 using System.IO;
+using System;
 
 namespace ALauncher
 {
@@ -35,6 +36,7 @@ namespace ALauncher
         private void LaunchGameBtn_Click(object sender, RoutedEventArgs e)
         {
             string processName = _settings.MainSporePath;
+            string arguments = _settings.LineArguments;
             switch (GamesList.SelectedIndex)
             {
                 case 0:
@@ -45,22 +47,43 @@ namespace ALauncher
                             "вы можете сделать это в открывшемся окне", "Проверьте настройки",
                             MessageBoxButton.OK, MessageBoxImage.Error);
                         SettingsBtn_Click(sender, e);
-                        Process.Start(EXPLORER,
-                            "http://davoonline.com/sporemodder/rob55rod/ModAPI/Public/index.html");
-                        return;
+                        processName = EXPLORER;
+                        arguments = "http://davoonline.com/sporemodder/rob55rod/ModAPI/Public/index.html";
                     }
-                    processName = _settings.ModAPIPath + "\\" + Settings.MODAPI_NAME;
+                    else
+                        processName = _settings.ModAPIPath + "\\" + Settings.MODAPI_NAME;
                     break;
                 case 1:
-                    processName += "\\SporebinEP1\\SporeApp.exe";
+                    if (_settings.IsSteamVersion)
+                    {
+                        processName = EXPLORER;
+                        arguments = "steam://rungameid/24720";
+                    }
+                    else
+                        processName += "\\SporebinEP1\\SporeApp.exe";
                     break;
                 case 2:
-                    processName += "\\SporeBin\\SporeApp.exe";
+                    if (_settings.IsSteamVersion)
+                    {
+                        processName = EXPLORER;
+                        arguments = "steam://rungameid/17390";
+                    }
+                    else
+                        processName += "\\SporeBin\\SporeApp.exe";
                     break;
                 default:
                     return;
             }
-            Process.Start(processName, _settings.LineArguments);
+            try
+            {
+                // Сделать чтобы аргументы работали и через стим
+                Process.Start(processName, arguments);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void FilesBtn_Click(object sender, RoutedEventArgs e) =>

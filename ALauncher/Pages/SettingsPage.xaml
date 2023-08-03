@@ -35,6 +35,7 @@
             </TextBlock>
             <TextBox Name="ModAPIPathBox"
                      Height="30"
+                     FontSize="20"
                      Width="430"
                      Margin="3"
                      VerticalAlignment="Center"/>
@@ -45,6 +46,7 @@
             </TextBlock>
             <TextBox Name="LineArgumentsBox"
                      Height="30"
+                     FontSize="20"
                      Width="430"
                      Margin="3"
                      VerticalAlignment="Center"/>

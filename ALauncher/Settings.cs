@@ -70,6 +70,7 @@ namespace ALauncher
 
         public string LineArguments { get; set; } = string.Empty;
         public bool IsSteamVersion { get; set; }
+        public bool IsFirstStart { get; set; } = true;
 
         public int SelectedGameIndex { get; set; } = 0;
 

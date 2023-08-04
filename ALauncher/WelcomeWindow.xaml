@@ -13,7 +13,7 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Window.DataContext>
-        <vm:SettingsViewModel/>
+        <vm:WelcomeWindowViewModel/>
     </Window.DataContext>
     
     <Grid>

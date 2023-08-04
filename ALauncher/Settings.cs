@@ -14,7 +14,21 @@ namespace ALauncher
         {
             get
             {
-                _instance ??= new Settings();
+                if (_instance == null)
+                {
+                    try
+                    {
+                        XmlSerializer serializer = new(typeof(Settings));
+                        using var stream = File.OpenRead(FILE_NAME);
+                        _instance = serializer.Deserialize(stream) as Settings;
+                    }
+                    catch
+                    {
+                        if (File.Exists(FILE_NAME))
+                            File.Delete(FILE_NAME);
+                    }
+                    finally { _instance ??= new Settings(); }
+                }
                 return _instance;
             }
         }
@@ -55,7 +69,8 @@ namespace ALauncher
             get => _modAPIPath ?? string.Empty;
             set => _modAPIPath = value;
         }
-        [XmlIgnore] public string MainSporePath
+        [XmlIgnore]
+        public string MainSporePath
         {
             get => _mainDirectory ?? string.Empty;
             private set
@@ -72,7 +87,16 @@ namespace ALauncher
         public bool IsSteamVersion { get; set; }
         public bool IsFirstStart { get; set; } = true;
 
-        public int SelectedGameIndex { get; set; } = 0;
+        private int _selectedGameIndex = 0;
+        public int SelectedGameIndex
+        {
+            get => _selectedGameIndex;
+            set
+            {
+                _selectedGameIndex = value;
+                Serialize();
+            }
+        }
 
         private Settings()
         {
@@ -89,21 +113,6 @@ namespace ALauncher
 
             //DirectoryInfo dir = new(_mainDirectory);
             // Доделать поиск exe-шника
-        }
-
-        public static void Deserialize()
-        {
-            try
-            {
-                XmlSerializer serializer = new(typeof(Settings));
-                using var stream = File.OpenRead(FILE_NAME);
-                _instance = serializer.Deserialize(stream) as Settings;
-            }
-            catch
-            {
-                if (File.Exists(FILE_NAME))
-                    File.Delete(FILE_NAME);
-            }
         }
 
         private static object? GetRegistryValue(string keyName, string valueName) =>

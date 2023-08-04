@@ -22,7 +22,9 @@
         </Grid.RowDefinitions>
 
         <Image Source="Images/Background.jpg" Stretch="UniformToFill"/>
-        <Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        <Frame Name="MainFrame"
+               Content="{Binding CurrentPage, UpdateSourceTrigger=PropertyChanged}"
+               NavigationUIVisibility="Hidden"/>
 
         <!--Нижняя панель-->
         <Grid Grid.Row="1" Background="{StaticResource BottomPanelBackground}">
@@ -57,8 +59,7 @@
                       Margin="10,20"
                       Height="25"
                       Grid.Column="1"
-                      SelectedIndex="0"
-                      SelectionChanged="GamesList_SelectionChanged"
+                      SelectedIndex="{Binding SelectedGameIndex, UpdateSourceTrigger=PropertyChanged}"
                       ToolTip="Игра для запуска">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="Images/modapi-icon.ico" Width="20" Height="20"/>
@@ -83,7 +84,7 @@
                     Content="Войти в игру"
                     Background="#FFECC13F"
                     FontFamily="Segoe UI Variable Display Semibold"
-                    Click="LaunchGameBtn_Click"/>
+                    Command="{Binding LaunchGameCommand}"/>
             <!--##########################################-->
 
             <!--Сохранения-->
@@ -91,7 +92,7 @@
                     Grid.Column="3"
                     Style="{StaticResource LauncherButtonStyle}"
                     ToolTip="Сохранения"
-                    Click="SavesBtn_Click">
+                    Command="{Binding SavesBtnCommand}">
                 <Image Source="Images/save-btn.png"/>
             </Button>
             <!--Моды-->
@@ -99,7 +100,7 @@
                     Grid.Column="4"
                     Style="{StaticResource LauncherButtonStyle}"
                     ToolTip="Моды"
-                    Click="SavesBtn_Click">
+                    Command="{Binding SavesBtnCommand}">
                 <Image Source="Images/mods-btn.png"/>
             </Button>
             <!--Творения-->
@@ -125,7 +126,7 @@
                     Grid.Column="7"
                     Style="{StaticResource LauncherButtonStyle}"
                     ToolTip="Настройки"
-                    Click="SettingsBtn_Click">
+                    Command="{Binding SettingsBtnCommand}">
                 <Image Source="Images/settings-btn.png"/>
             </Button>
         </Grid>

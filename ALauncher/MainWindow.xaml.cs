@@ -1,8 +1,4 @@
 ﻿using System.Windows;
-using System.Diagnostics;
-using ALauncher.Pages;
-using System.IO;
-using System;
 
 namespace ALauncher
 {

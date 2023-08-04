@@ -86,20 +86,11 @@ namespace ALauncher
             }
         }
 
-        private void FilesBtn_Click(object sender, RoutedEventArgs e) =>
-            Process.Start(EXPLORER, Settings.Instance.SporeEP1Path);
-
-        private void CreationsBtn_Click(object sender, RoutedEventArgs e) =>
-            Process.Start(EXPLORER, Settings.Instance.MySporeCreationsPath);
-
         private void SavesBtn_Click(object sender, RoutedEventArgs e)
         {
             _savesPage ??= new SavesPage();
             MainFrame.Content = _savesPage;
         }
-
-        //public void OpenMainPage() =>
-        //    MainFrame.Content = _mainPage;
 
         private void SettingsBtn_Click(object sender, RoutedEventArgs e)
         {

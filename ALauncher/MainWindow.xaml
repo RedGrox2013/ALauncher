@@ -4,12 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ALauncher"
+        xmlns:vm="clr-namespace:ALauncher.ViewModel"
         mc:Ignorable="d"
         Title="AloeLauncher"
         Height="694" Width="1066"
         MinHeight="450" MinWidth="850"
         WindowStartupLocation="CenterScreen">
 
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -102,7 +107,8 @@
                     Grid.Column="5"
                     Style="{StaticResource LauncherButtonStyle}"
                     ToolTip="Мои творения"
-                    Click="CreationsBtn_Click">
+                    Command="{Binding ShowExplorerCommand}"
+                    CommandParameter="{Binding MySporeCreationsPath}">
                 <Image Source="Images/creations-btn.png"/>
             </Button>
             <!--Файлы-->
@@ -110,7 +116,8 @@
                     Grid.Column="6"
                     Style="{StaticResource LauncherButtonStyle}"
                     ToolTip="Файлы"
-                    Click="FilesBtn_Click">
+                    Command="{Binding ShowExplorerCommand}"
+                    CommandParameter="{Binding MainSporePath}">
                 <Image Source="Images/files-btn.png"/>
             </Button>
             <!--Настройки-->

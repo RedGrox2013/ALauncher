@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ALauncher"
+        xmlns:vm="clr-namespace:ALauncher.ViewModel"
         mc:Ignorable="d"
         Title="Добро пожаловать в ALauncher!"
         Height="401"
@@ -11,6 +12,10 @@
         Background="#FF232939"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
+    <Window.DataContext>
+        <vm:SettingsViewModel/>
+    </Window.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -49,7 +54,8 @@
                 <TextBox Name="ModAPIPathBox"
                          Height="30"
                          DockPanel.Dock="Left"
-                         FontSize="20"/>
+                         FontSize="20"
+                         Text="{Binding ModAPIPath}"/>
             </DockPanel>
             <CheckBox Name="NoModAPICheck"
                       Margin="5"

@@ -10,7 +10,15 @@ namespace ALauncher.ViewModel
     {
         private readonly Settings _settings;
 
-        public string MainSporePath => _settings.MainSporePath;
+        public string ModAPIPath
+        {
+            get => _settings.ModAPIPath;
+            set
+            {
+                _settings.ModAPIPath = value;
+                OnPropertyChanged();
+            }
+        }
 
         public SettingsViewModel()
         {

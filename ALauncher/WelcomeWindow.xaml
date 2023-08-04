@@ -43,27 +43,28 @@
             <TextBlock Text="Путь до ModAPI:"
                        Foreground="White"
                        FontSize="20"/>
-            <DockPanel Name="ModAPIPathDock" LastChildFill="True">
+            <DockPanel Name="ModAPIPathDock"
+                       LastChildFill="True"
+                       Visibility="{Binding ModAPIPathVisibility}">
                 <Button Name="BrowseBtn"
                         Margin="5,0,0,0"
                         DockPanel.Dock="Right"
                         Background="#FF383B42"
                         Foreground="White"
-                        Click="BrowseBtn_Click"
+                        Command="{Binding BrowseBtnCommand}"
                         Content="Обзор"/>
                 <TextBox Name="ModAPIPathBox"
                          Height="30"
                          DockPanel.Dock="Left"
                          FontSize="20"
-                         Text="{Binding ModAPIPath}"/>
+                         ToolTip="{Binding ModAPIPath, UpdateSourceTrigger=PropertyChanged}"
+                         Text="{Binding ModAPIPath, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
-            <CheckBox Name="NoModAPICheck"
+            <CheckBox IsChecked="{Binding NoModAPI, UpdateSourceTrigger=PropertyChanged}"
                       Margin="5"
                       Foreground="White"
-                      Checked="NoModAPICheck_Checked"
-                      Unchecked="NoModAPICheck_Unchecked"
                       Content="У меня нет ModAPI"/>
-            <CheckBox Name="IsSteamVersionCheck"
+            <CheckBox IsChecked="{Binding IsSteamVersion, UpdateSourceTrigger=PropertyChanged}"
                       Foreground="White"
                       Margin="5,10,0,0"
                       ToolTip="Поставьте галочку сюда, если у вас стимовская версия игры"
@@ -74,8 +75,10 @@
                 <LineBreak/>
                 Если у вас нет ModAPI,
                 вы можете скачать его
-                <Hyperlink NavigateUri="http://davoonline.com/sporemodder/rob55rod/ModAPI/Public/index.html"
-                           Click="Hyperlink_Click">
+                <Hyperlink Name="ModAPIKitLink"
+                           NavigateUri="http://davoonline.com/sporemodder/rob55rod/ModAPI/Public/index.html"
+                           Command="{Binding HyperlinkCommand}"
+                           CommandParameter="{Binding ElementName=ModAPIKitLink, Path=NavigateUri}">
                     здесь.
                 </Hyperlink>
             </TextBlock>

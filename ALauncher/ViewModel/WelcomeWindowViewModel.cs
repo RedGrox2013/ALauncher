@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -12,24 +8,27 @@ namespace ALauncher.ViewModel
     {
         private readonly Settings _settings;
 
-        public ICommand HyperlinkCommand { get; set; }
-        public ICommand BrowseBtnCommand { get; set; }
+        public ICommand HyperlinkCommand { get; private set; }
+        public ICommand BrowseBtnCommand { get; private set; }
+        public ICommand SaveBtnCommand { get; private set; }
 
+        private string _modAPIPath;
         public string ModAPIPath
         {
-            get => _settings.ModAPIPath;
+            get => _modAPIPath;
             set
             {
-                _settings.ModAPIPath = value;
+                _modAPIPath = value;
                 OnPropertyChanged();
             }
         }
+        private bool _isSteamVersion;
         public bool? IsSteamVersion
         {
-            get => _settings.IsSteamVersion;
+            get => _isSteamVersion;
             set
             {
-                _settings.IsSteamVersion = value ?? false;
+                _isSteamVersion = value ?? false;
                 OnPropertyChanged();
             }
         }
@@ -59,11 +58,36 @@ namespace ALauncher.ViewModel
         public WelcomeWindowViewModel()
         {
             _settings = Settings.Instance;
+            _modAPIPath = _settings.ModAPIPath;
+            _isSteamVersion = _settings.IsSteamVersion;
 
             HyperlinkCommand = new RelayCommand((uri) =>
                 System.Diagnostics.Process.Start("explorer.exe",
                 uri?.ToString() ?? "https://youtu.be/dQw4w9WgXcQ"));
             BrowseBtnCommand = new RelayCommand(BrowseFolder);
+            SaveBtnCommand = new RelayCommand(SaveSettings);
+        }
+
+        private void SaveSettings(object? obj)
+        {
+            if (string.IsNullOrWhiteSpace(_modAPIPath) && !_noModAPI)
+            {
+                MessageBox.Show("Введите путь до ModAPI", "Ошибка!",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            _settings.IsFirstStart = false;
+            _settings.ModAPIPath = _modAPIPath;
+            _settings.IsSteamVersion = _isSteamVersion;
+            Settings.Serialize();
+
+            // Закрываем окно
+            if (obj is Window w)
+            {
+                w.DialogResult = true;
+                w.Close();
+            }
         }
 
         private void BrowseFolder(object? obj)

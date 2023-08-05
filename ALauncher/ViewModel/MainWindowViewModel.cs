@@ -11,10 +11,10 @@ namespace ALauncher.ViewModel
     {
         private readonly Settings _settings;
 
-        public ICommand ShowExplorerCommand { get; set; }
-        public ICommand SavesBtnCommand { get; set; }
-        public ICommand SettingsBtnCommand { get; set; }
-        public ICommand LaunchGameCommand { get; set; }
+        public ICommand ShowExplorerCommand { get; private set; }
+        public ICommand SavesBtnCommand { get; private set; }
+        public ICommand SettingsBtnCommand { get; private set; }
+        public ICommand LaunchGameCommand { get; private set; }
 
         public string MainSporePath => _settings.MainSporePath;
         public string MySporeCreationsPath => _settings.MySporeCreationsPath;

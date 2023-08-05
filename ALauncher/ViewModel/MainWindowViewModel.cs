@@ -28,7 +28,6 @@ namespace ALauncher.ViewModel
             }
         }
 
-        private readonly MainPage _mainPage;
         private SavesPage? _savesPage;
         private SettingsPage? _settingsPage;
         private Page _currentPage;
@@ -47,7 +46,7 @@ namespace ALauncher.ViewModel
         public MainWindowViewModel()
         {
             _settings = Settings.Instance;
-            _currentPage = _mainPage = new MainPage();
+            _currentPage = new MainPage();
 
             ShowExplorerCommand = new RelayCommand((param) =>
                 Process.Start(EXPLORER, param?.ToString() ?? string.Empty));

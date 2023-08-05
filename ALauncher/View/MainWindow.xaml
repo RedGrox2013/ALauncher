@@ -21,7 +21,7 @@
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
 
-        <Image Source="Images/Background.jpg" Stretch="UniformToFill"/>
+        <Image Source="../Images/Background.jpg" Stretch="UniformToFill"/>
         <Frame Name="MainFrame"
                Content="{Binding CurrentPage, UpdateSourceTrigger=PropertyChanged}"
                NavigationUIVisibility="Hidden"/>
@@ -62,15 +62,15 @@
                       SelectedIndex="{Binding SelectedGameIndex, UpdateSourceTrigger=PropertyChanged}"
                       ToolTip="Игра для запуска">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="Images/modapi-icon.ico" Width="20" Height="20"/>
+                    <Image Source="../Images/modapi-icon.ico" Width="20" Height="20"/>
                     <TextBlock Margin="3" VerticalAlignment="Center">Spore ModAPI Launcher</TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="Images/ga-icon.ico" Width="20" Height="20"/>
+                    <Image Source="../Images/ga-icon.ico" Width="20" Height="20"/>
                     <TextBlock Margin="3" VerticalAlignment="Center">Spore GA</TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="Images/vanilla-icon.ico" Width="20" Height="20"/>
+                    <Image Source="../Images/vanilla-icon.ico" Width="20" Height="20"/>
                     <TextBlock Margin="3" VerticalAlignment="Center">Spore</TextBlock>
                 </StackPanel>
             </ComboBox>
@@ -93,7 +93,7 @@
                     Style="{StaticResource LauncherButtonStyle}"
                     ToolTip="Сохранения"
                     Command="{Binding SavesBtnCommand}">
-                <Image Source="Images/save-btn.png"/>
+                <Image Source="../Images/save-btn.png"/>
             </Button>
             <!--Моды-->
             <Button Name="ModsBtn"
@@ -101,7 +101,7 @@
                     Style="{StaticResource LauncherButtonStyle}"
                     ToolTip="Моды"
                     Command="{Binding SavesBtnCommand}">
-                <Image Source="Images/mods-btn.png"/>
+                <Image Source="../Images/mods-btn.png"/>
             </Button>
             <!--Творения-->
             <Button Name="CreationsBtn"
@@ -110,7 +110,7 @@
                     ToolTip="Мои творения"
                     Command="{Binding ShowExplorerCommand}"
                     CommandParameter="{Binding MySporeCreationsPath}">
-                <Image Source="Images/creations-btn.png"/>
+                <Image Source="../Images/creations-btn.png"/>
             </Button>
             <!--Файлы-->
             <Button Name="FilesBtn"
@@ -119,7 +119,7 @@
                     ToolTip="Файлы"
                     Command="{Binding ShowExplorerCommand}"
                     CommandParameter="{Binding MainSporePath}">
-                <Image Source="Images/files-btn.png"/>
+                <Image Source="../Images/files-btn.png"/>
             </Button>
             <!--Настройки-->
             <Button Name="SettingsBtn"
@@ -127,7 +127,7 @@
                     Style="{StaticResource LauncherButtonStyle}"
                     ToolTip="Настройки"
                     Command="{Binding SettingsBtnCommand}">
-                <Image Source="Images/settings-btn.png"/>
+                <Image Source="../Images/settings-btn.png"/>
             </Button>
         </Grid>
     </Grid>

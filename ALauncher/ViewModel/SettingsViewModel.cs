@@ -10,12 +10,13 @@ namespace ALauncher.ViewModel
     {
         private readonly Settings _settings;
 
+        private string _modAPIPath;
         public string ModAPIPath
         {
-            get => _settings.ModAPIPath;
+            get => _modAPIPath;
             set
             {
-                _settings.ModAPIPath = value;
+                _modAPIPath = value;
                 OnPropertyChanged();
             }
         }
@@ -23,6 +24,7 @@ namespace ALauncher.ViewModel
         public SettingsViewModel()
         {
             _settings = Settings.Instance;
+            _modAPIPath = _settings.ModAPIPath;
         }
     }
 }

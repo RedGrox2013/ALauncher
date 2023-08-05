@@ -23,7 +23,6 @@ namespace ALauncher.View
             InitializeComponent();
 
             _settings = Settings.Instance;
-            ModAPIPathBox.Text = _settings.ModAPIPath;
             LineArgumentsBox.Text = _settings.LineArguments;
         }
 

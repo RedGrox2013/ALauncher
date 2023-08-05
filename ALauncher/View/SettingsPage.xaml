@@ -4,10 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ALauncher.View"
+      xmlns:vm="clr-namespace:ALauncher.ViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="585" d:DesignWidth="1066"
       Title="SettingsPage">
 
+    <Page.DataContext>
+        <vm:SettingsViewModel/>
+    </Page.DataContext>
     
     <Grid Background="White" Height="530" Width="620">
         <Grid.RowDefinitions>
@@ -17,8 +21,12 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-        <StackPanel Background="#FF3CAAE8" Orientation="Horizontal">
+        <StackPanel Grid.ColumnSpan="2" Background="#FF3CAAE8" Orientation="Horizontal">
             <Button Background="#FF3CAAE8" Width="60" Click="BackBtn_Click">
                 ⬅️
             </Button>
@@ -29,33 +37,36 @@
                        Foreground="White"
                        Margin="150,0,0,0"/>
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
-            <TextBlock FontSize="17" VerticalAlignment="Center">
+        <TextBlock Grid.Row="1" Margin="10" FontSize="17" VerticalAlignment="Center">
                 Путь до ModAPI:
-            </TextBlock>
+        </TextBlock>
+        <DockPanel Grid.Row="1" Grid.Column="1" Margin="10" LastChildFill="True">
+            <Button DockPanel.Dock="Right"
+                    Margin="5"
+                    Height="30"
+                    Width="60"
+                    Content="Обзор"/>
             <TextBox Name="ModAPIPathBox"
                      Height="30"
                      FontSize="20"
-                     Width="430"
-                     Margin="3"
+                     Text="{Binding ModAPIPath, UpdateSourceTrigger=PropertyChanged}"
                      VerticalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10">
-            <TextBlock FontSize="17" VerticalAlignment="Center">
+        </DockPanel>
+        <TextBlock FontSize="17" Margin="10" Grid.Row="2" VerticalAlignment="Center">
                 Spore аргументы:
-            </TextBlock>
-            <TextBox Name="LineArgumentsBox"
-                     Height="30"
-                     FontSize="20"
-                     Width="430"
-                     Margin="3"
-                     VerticalAlignment="Center"/>
-        </StackPanel>
+        </TextBlock>
+        <TextBox Name="LineArgumentsBox"
+                 Grid.Row="2"
+                 Grid.Column="2"
+                 Height="30"
+                 FontSize="20"
+                 Margin="10"
+                 VerticalAlignment="Center"/>
 
-        <Image Source="../Images/Dev.png" Grid.Row="3"/>
+        <Image Source="../Images/Dev.png" Grid.ColumnSpan="2" Grid.Row="3"/>
 
         <!--Кнопочки-->
-        <StackPanel Orientation="Horizontal" Grid.Row="4" Height="33" HorizontalAlignment="Center">
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Grid.Row="4" Height="33" HorizontalAlignment="Center">
             <Button Name="SaveBtn" Width="170" FontSize="18" Click="SaveBtn_Click">
                 Сохранить
             </Button>

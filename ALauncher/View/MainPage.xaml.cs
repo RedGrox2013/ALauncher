@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ALauncher.Pages
+namespace ALauncher.View
 {
     /// <summary>
     /// Логика взаимодействия для MainPage.xaml

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace ALauncher.Pages
+namespace ALauncher.View
 {
     /// <summary>
     /// Логика взаимодействия для SavesPage.xaml

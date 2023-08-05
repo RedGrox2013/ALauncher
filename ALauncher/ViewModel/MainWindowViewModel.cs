@@ -1,4 +1,4 @@
-﻿using ALauncher.Pages;
+﻿using ALauncher.View;
 using System;
 using System.Diagnostics;
 using System.Windows;

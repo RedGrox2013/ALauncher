@@ -5,15 +5,13 @@
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <SolidColorBrush x:Key="BottomPanelBackground" Color="#FF71A94C"/>
+        
         <Style x:Key="LauncherButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="{StaticResource BottomPanelBackground}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" ClipToBounds="True">
-                            <!--<DockPanel>
-                                <ContentPresenter Content="{TemplateBinding Content}"/>
-                            </DockPanel>-->
                             <ContentPresenter Content="{TemplateBinding Content}"/>
                         </Border>
                     </ControlTemplate>
@@ -24,6 +22,12 @@
                     <Setter Property="Background" Value="#FF527F35"/>
                 </Trigger>
             </Style.Triggers>
+        </Style>
+
+        <Style x:Key="SettingsTextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
     </Application.Resources>
 </Application>

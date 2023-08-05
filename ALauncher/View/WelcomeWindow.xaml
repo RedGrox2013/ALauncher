@@ -55,9 +55,8 @@
                         Command="{Binding BrowseBtnCommand}"
                         Content="Обзор"/>
                 <TextBox Name="ModAPIPathBox"
-                         Height="30"
                          DockPanel.Dock="Left"
-                         FontSize="20"
+                         Style="{StaticResource SettingsTextBoxStyle}"
                          ToolTip="{Binding ModAPIPath, UpdateSourceTrigger=PropertyChanged}"
                          Text="{Binding ModAPIPath, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>

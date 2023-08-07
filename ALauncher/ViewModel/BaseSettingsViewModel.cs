@@ -38,7 +38,16 @@ namespace ALauncher.ViewModel
                 OnPropertyChanged();
             }
         }
-
+        private SporeLanguages _lang;
+        public int SelectedLanguageIndex
+        {
+            get => (int)_lang;
+            set
+            {
+                _lang = (SporeLanguages)value;
+                OnPropertyChanged();
+            }
+        }
 
         public BaseSettingsViewModel()
         {
@@ -46,6 +55,7 @@ namespace ALauncher.ViewModel
             _modAPIPath = settings.ModAPIPath;
             _isSteamVersion = settings.IsSteamVersion;
             _lineArgs = settings.LineArguments;
+            _lang = settings.Language;
 
             BrowseBtnCommand = new RelayCommand(BrowseFolder);
         }
@@ -55,6 +65,7 @@ namespace ALauncher.ViewModel
             settings.ModAPIPath = _modAPIPath;
             settings.IsSteamVersion = _isSteamVersion;
             settings.LineArguments = _lineArgs;
+            settings.Language = _lang;
 
             Settings.Serialize();
         }

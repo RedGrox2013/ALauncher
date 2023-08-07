@@ -82,10 +82,10 @@
                   Height="25"
                   Margin="10"
                   Width="200"
+                  SelectedIndex="{Binding SelectedLanguageIndex, UpdateSourceTrigger=PropertyChanged}"
                   HorizontalAlignment="Left">
-            <ComboBoxItem>
-                В разработке...
-            </ComboBoxItem>
+            <ComboBoxItem>Русский</ComboBoxItem>
+            <ComboBoxItem>English</ComboBoxItem>
         </ComboBox>
         <TextBlock Grid.Row="5" Style="{StaticResource TextBlockStyle}">
             Steam-овская версия

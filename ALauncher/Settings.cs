@@ -84,6 +84,7 @@ namespace ALauncher
 
         public string LineArguments { get; set; } = string.Empty;
         public bool IsSteamVersion { get; set; }
+        public SporeLanguages Language { get; set; }
         public bool IsFirstStart { get; set; } = true;
 
         private int _selectedGameIndex = 0;
@@ -128,10 +129,11 @@ namespace ALauncher
         }
     }
 
-    //public enum SporeLanguages
-    //{
-    //    Russian,
-    //    English,
-    //    Czech
-    //}
+    public enum SporeLanguages
+    {
+        Russian,
+        English,
+        //Czech,
+        //Danish
+    }
 }

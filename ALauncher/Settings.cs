@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.IO;
-using System.Text;
 using System.Xml.Serialization;
 
 namespace ALauncher
@@ -102,8 +101,8 @@ namespace ALauncher
         {
             const string KEY_NAME = "datadir";
 
-            SporePath = GetRegistryValue("spore", KEY_NAME) as string ?? string.Empty;
-            _sporeEP1Path = GetRegistryValue("SPORE_EP1", KEY_NAME) as string;
+            SporePath = GetRegistryValue("spore", KEY_NAME)?.ToString() ?? string.Empty;
+            _sporeEP1Path = GetRegistryValue("SPORE_EP1", KEY_NAME)?.ToString();
 
             MySporeCreationsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
                 "\\" + GetRegistryValue("spore", "playerdir");
@@ -128,4 +127,11 @@ namespace ALauncher
             serializer.Serialize(stream, _instance);
         }
     }
+
+    //public enum SporeLanguages
+    //{
+    //    Russian,
+    //    English,
+    //    Czech
+    //}
 }

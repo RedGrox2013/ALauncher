@@ -56,11 +56,11 @@
                 Путь до ModAPI:
         </TextBlock>
         <DockPanel Grid.Row="2" Grid.Column="1" Margin="10" LastChildFill="True">
-            <!--Доделать кнопку-->
             <Button DockPanel.Dock="Right"
                     Margin="5"
                     Height="30"
                     Width="60"
+                    Command="{Binding BrowseBtnCommand}"
                     Content="Обзор"/>
             <TextBox Name="ModAPIPathBox"
                      Style="{StaticResource SettingsTextBoxStyle}"

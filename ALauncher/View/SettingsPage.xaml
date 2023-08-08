@@ -88,6 +88,12 @@
             <ComboBoxItem>English</ComboBoxItem>
             <ComboBoxItem>Čeština</ComboBoxItem>
             <ComboBoxItem>Dansk</ComboBoxItem>
+            <ComboBoxItem>Dansk</ComboBoxItem>
+            <ComboBoxItem>Deutsch</ComboBoxItem>
+            <ComboBoxItem>Español</ComboBoxItem>
+            <ComboBoxItem>Suomalainen</ComboBoxItem>
+            <ComboBoxItem>Français</ComboBoxItem>
+            <ComboBoxItem>Italien</ComboBoxItem>
         </ComboBox>
         <TextBlock Grid.Row="5" Style="{StaticResource TextBlockStyle}">
             Steam-овская версия

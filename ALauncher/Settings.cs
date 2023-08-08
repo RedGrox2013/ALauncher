@@ -86,6 +86,7 @@ namespace ALauncher
         public string SporeAppPath { get; private set; } = string.Empty;
         [XmlIgnore]
         public string SporeEP1AppPath { get; private set; } = string.Empty;
+        public string? SteamPath { get; set; }
 
         public string LineArguments { get; set; } = string.Empty;
         public bool IsSteamVersion { get; set; }
@@ -112,6 +113,14 @@ namespace ALauncher
 
             MySporeCreationsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
                 "\\" + GetRegistryValue("spore", "playerdir");
+            SteamPath = Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\Valve\\Steam",
+                "InstallPath", null)?.ToString();
+            if (SteamPath != null)
+            {
+                if (SteamPath[^1] != '\\')
+                    SteamPath += "\\";
+                SteamPath += "steam.exe";
+            }
 
             FindApps();
         }

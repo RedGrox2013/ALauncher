@@ -58,6 +58,14 @@ namespace ALauncher.ViewModel
 
         private void LaunchGame(object? arg)
         {
+            if (_settings.IsSteamVersion && _settings.SteamPath == null)
+            {
+                MessageBox.Show("Не найден Steam", "Ошибка!",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            string steamPath = _settings.SteamPath ?? string.Empty;
+
             string processName;
             string arguments = _settings.LineArguments +
                 " -locale:" + _settings.Language switch
@@ -99,8 +107,10 @@ namespace ALauncher.ViewModel
                 case 1:
                     if (_settings.IsSteamVersion)
                     {
-                        processName = EXPLORER;
-                        arguments = "steam://rungameid/24720";
+                        //processName = EXPLORER;
+                        //arguments = "steam://rungameid/24720";
+                        processName = steamPath;
+                        arguments = "-applaunch 24720 " + arguments;
                     }
                     else
                         processName = _settings.SporeEP1AppPath;
@@ -108,8 +118,10 @@ namespace ALauncher.ViewModel
                 case 2:
                     if (_settings.IsSteamVersion)
                     {
-                        processName = EXPLORER;
-                        arguments = "steam://rungameid/17390";
+                        //processName = EXPLORER;
+                        //arguments = "steam://rungameid/17390";
+                        processName = steamPath;
+                        arguments = "-applaunch 17390 " + arguments;
                     }
                     else
                         processName = _settings.SporeAppPath;

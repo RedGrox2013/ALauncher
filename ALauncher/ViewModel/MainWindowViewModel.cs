@@ -59,9 +59,9 @@ namespace ALauncher.ViewModel
 
         private void LaunchGame(object? arg)
         {
-            string processName = _settings.MainSporePath;
+            string processName;
             string arguments = _settings.LineArguments +
-                " locale:" + _settings.Language switch
+                " -locale:" + _settings.Language switch
                 {
                     SporeLanguages.Russian => "ru-ru",
                     SporeLanguages.EnglishUK => "en-gb",
@@ -103,7 +103,7 @@ namespace ALauncher.ViewModel
                         arguments = "steam://rungameid/24720";
                     }
                     else
-                        processName += "\\SporebinEP1\\SporeApp.exe";
+                        processName = _settings.SporeEP1AppPath;
                     break;
                 case 2:
                     if (_settings.IsSteamVersion)
@@ -112,7 +112,7 @@ namespace ALauncher.ViewModel
                         arguments = "steam://rungameid/17390";
                     }
                     else
-                        processName += "\\SporeBin\\SporeApp.exe";
+                        processName = _settings.SporeAppPath;
                     break;
                 default:
                     return;
@@ -120,7 +120,8 @@ namespace ALauncher.ViewModel
             try
             {
                 // Сделать чтобы аргументы работали и через стим
-                Process.Start(processName, arguments);
+                //Process.Start(processName, arguments);
+                MessageBox.Show(processName);
             }
             catch (Exception ex)
             {

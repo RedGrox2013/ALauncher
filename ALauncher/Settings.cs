@@ -46,9 +46,9 @@ namespace ALauncher
             {
                 _sporePath = value;
                 MainSporePath = value;
+                FindApps();
             }
         }
-        //public string SporeAppPath { get; private set; }
         public string SporeEP1Path
         {
             get => _sporeEP1Path ?? string.Empty;
@@ -56,6 +56,7 @@ namespace ALauncher
             {
                 _sporeEP1Path = value;
                 MainSporePath = value;
+                FindApps();
             }
         }
         public string MySporeCreationsPath
@@ -81,6 +82,8 @@ namespace ALauncher
                 _mainDirectory = dir.Parent?.ToString();
             }
         }
+        public string SporeAppPath { get; private set; } = string.Empty;
+        public string SporeEP1AppPath { get; private set; } = string.Empty;
 
         public string LineArguments { get; set; } = string.Empty;
         public bool IsSteamVersion { get; set; }
@@ -108,11 +111,24 @@ namespace ALauncher
             MySporeCreationsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
                 "\\" + GetRegistryValue("spore", "playerdir");
 
-            //if (_mainDirectory == null)
-            //    return;
+            FindApps();
+        }
 
-            //DirectoryInfo dir = new(_mainDirectory);
-            // Доделать поиск exe-шника
+        private void FindApps()
+        {
+            string? installLoc = GetRegistryValue("spore", nameof(installLoc))?.ToString();
+            if (installLoc == null)
+                SporeAppPath = _mainDirectory ?? string.Empty;
+            else
+                SporeAppPath = installLoc;
+            SporeAppPath += "\\SporeBin\\SporeApp.exe";
+
+            installLoc = GetRegistryValue("SPORE_EP1", nameof(installLoc))?.ToString();
+            if (installLoc == null)
+                SporeEP1AppPath = _mainDirectory ?? string.Empty;
+            else
+                SporeEP1AppPath = installLoc;
+            SporeEP1AppPath += "\\SporebinEP1\\SporeApp.exe";
         }
 
         private static object? GetRegistryValue(string keyName, string valueName) =>

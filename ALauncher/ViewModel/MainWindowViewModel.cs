@@ -29,7 +29,6 @@ namespace ALauncher.ViewModel
         }
 
         private SavesPage? _savesPage;
-        private SettingsPage? _settingsPage;
         private Page _currentPage;
         public Page CurrentPage
         {
@@ -53,7 +52,7 @@ namespace ALauncher.ViewModel
             SavesBtnCommand = new RelayCommand((o) =>
                 CurrentPage = _savesPage ??= new SavesPage());
             SettingsBtnCommand = new RelayCommand((o) =>
-                CurrentPage = _settingsPage ??= new SettingsPage());
+                CurrentPage = new SettingsPage());
             LaunchGameCommand = new RelayCommand(LaunchGame);
         }
 
@@ -89,8 +88,8 @@ namespace ALauncher.ViewModel
                             "Если у вас не установлен Spore ModAPI Launcher, " +
                             "вы можете сделать это в открывшемся окне", "Проверьте настройки",
                             MessageBoxButton.OK, MessageBoxImage.Error);
-                        if (CurrentPage != _settingsPage)
-                            CurrentPage = _settingsPage ??= new SettingsPage();
+                        if (CurrentPage is not SettingsPage)
+                            CurrentPage = new SettingsPage();
                         processName = EXPLORER;
                         arguments = "http://davoonline.com/sporemodder/rob55rod/ModAPI/Public/index.html";
                     }

@@ -83,7 +83,8 @@
                   Margin="10"
                   Width="200"
                   SelectedIndex="{Binding SelectedLanguageIndex, UpdateSourceTrigger=PropertyChanged}"
-                  HorizontalAlignment="Left">
+                  HorizontalAlignment="Left"
+                  FontSize="15">
             <ComboBoxItem>Русский</ComboBoxItem>
             <ComboBoxItem>English (USA)</ComboBoxItem>
             <ComboBoxItem>English (UK)</ComboBoxItem>
@@ -97,6 +98,9 @@
             <ComboBoxItem>Magyar</ComboBoxItem>
             <ComboBoxItem>Nederlands</ComboBoxItem>
             <ComboBoxItem>Norsk</ComboBoxItem>
+            <ComboBoxItem>Polski</ComboBoxItem>
+            <ComboBoxItem>Svenska</ComboBoxItem>
+            <ComboBoxItem>Português</ComboBoxItem>
         </ComboBox>
         <TextBlock Grid.Row="5" Style="{StaticResource TextBlockStyle}">
             Steam-овская версия

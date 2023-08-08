@@ -132,8 +132,20 @@ namespace ALauncher
     public enum SporeLanguages
     {
         Russian,
-        English,
+        EnglishUSA,
+        EnglishUK,
         Czech,
-        Danish
+        Danish,
+        German,
+        Spanish,
+        Finnish,
+        French,
+        Italian,
+        Hungarian,
+        Dutch,
+        Norwegian,
+        Polish,
+        Swedish,
+        Portuguese
     }
 }

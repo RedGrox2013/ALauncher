@@ -60,14 +60,26 @@ namespace ALauncher.ViewModel
         private void LaunchGame(object? arg)
         {
             string processName = _settings.MainSporePath;
-            string arguments = _settings.LineArguments + " locale:";
-            arguments += _settings.Language switch
-            {
-                SporeLanguages.Russian => "ru-ru",
-                SporeLanguages.Czech => "cs-cz",
-                SporeLanguages.Danish => "da-dk",
-                _ => "en-us",
-            };
+            string arguments = _settings.LineArguments +
+                " locale:" + _settings.Language switch
+                {
+                    SporeLanguages.Russian => "ru-ru",
+                    SporeLanguages.EnglishUK => "en-gb",
+                    SporeLanguages.Czech => "cs-cz",
+                    SporeLanguages.Danish => "da-dk",
+                    SporeLanguages.German => "de-de",
+                    SporeLanguages.Spanish => "es-es",
+                    SporeLanguages.Finnish => "fi-fi",
+                    SporeLanguages.French => "fr-fr",
+                    SporeLanguages.Italian => "it-it",
+                    SporeLanguages.Hungarian => "hu-hu",
+                    SporeLanguages.Dutch => "nl-nl",
+                    SporeLanguages.Norwegian => "no-no",
+                    SporeLanguages.Polish => "pl-pl",
+                    SporeLanguages.Swedish => "sv-se",
+                    SporeLanguages.Portuguese => "pt-pt",
+                    _ => "en-us"
+                };
             switch (SelectedGameIndex)
             {
                 case 0:

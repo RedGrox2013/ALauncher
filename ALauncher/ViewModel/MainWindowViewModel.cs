@@ -60,7 +60,14 @@ namespace ALauncher.ViewModel
         private void LaunchGame(object? arg)
         {
             string processName = _settings.MainSporePath;
-            string arguments = _settings.LineArguments;
+            string arguments = _settings.LineArguments + " locale:";
+            arguments += _settings.Language switch
+            {
+                SporeLanguages.Russian => "ru-ru",
+                SporeLanguages.Czech => "cs-cz",
+                SporeLanguages.Danish => "da-dk",
+                _ => "en-us",
+            };
             switch (SelectedGameIndex)
             {
                 case 0:

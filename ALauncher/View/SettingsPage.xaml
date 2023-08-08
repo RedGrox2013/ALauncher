@@ -86,6 +86,8 @@
                   HorizontalAlignment="Left">
             <ComboBoxItem>Русский</ComboBoxItem>
             <ComboBoxItem>English</ComboBoxItem>
+            <ComboBoxItem>Čeština</ComboBoxItem>
+            <ComboBoxItem>Dansk</ComboBoxItem>
         </ComboBox>
         <TextBlock Grid.Row="5" Style="{StaticResource TextBlockStyle}">
             Steam-овская версия

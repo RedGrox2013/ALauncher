@@ -133,7 +133,7 @@ namespace ALauncher
     {
         Russian,
         English,
-        //Czech,
-        //Danish
+        Czech,
+        Danish
     }
 }

@@ -82,7 +82,9 @@ namespace ALauncher
                 _mainDirectory = dir.Parent?.ToString();
             }
         }
+        [XmlIgnore]
         public string SporeAppPath { get; private set; } = string.Empty;
+        [XmlIgnore]
         public string SporeEP1AppPath { get; private set; } = string.Empty;
 
         public string LineArguments { get; set; } = string.Empty;

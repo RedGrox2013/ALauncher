@@ -89,7 +89,8 @@ namespace ALauncher.ViewModel
                             "Если у вас не установлен Spore ModAPI Launcher, " +
                             "вы можете сделать это в открывшемся окне", "Проверьте настройки",
                             MessageBoxButton.OK, MessageBoxImage.Error);
-                        //SettingsBtn_Click(sender, e);
+                        if (CurrentPage != _settingsPage)
+                            CurrentPage = _settingsPage ??= new SettingsPage();
                         processName = EXPLORER;
                         arguments = "http://davoonline.com/sporemodder/rob55rod/ModAPI/Public/index.html";
                     }
@@ -120,8 +121,7 @@ namespace ALauncher.ViewModel
             try
             {
                 // Сделать чтобы аргументы работали и через стим
-                //Process.Start(processName, arguments);
-                MessageBox.Show(processName);
+                Process.Start(processName, arguments);
             }
             catch (Exception ex)
             {

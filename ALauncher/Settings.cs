@@ -123,14 +123,18 @@ namespace ALauncher
                 SporeAppPath = _mainDirectory ?? string.Empty;
             else
                 SporeAppPath = installLoc;
-            SporeAppPath += "\\SporeBin\\SporeApp.exe";
+            if (SporeAppPath.Length != 0 && SporeAppPath[^1] != '\\')
+                SporeAppPath += "\\";
+            SporeAppPath += "SporeBin\\SporeApp.exe";
 
             installLoc = GetRegistryValue("SPORE_EP1", nameof(installLoc))?.ToString();
             if (installLoc == null)
                 SporeEP1AppPath = _mainDirectory ?? string.Empty;
             else
                 SporeEP1AppPath = installLoc;
-            SporeEP1AppPath += "\\SporebinEP1\\SporeApp.exe";
+            if (SporeEP1AppPath.Length != 0 && SporeEP1AppPath[^1] != '\\')
+                SporeEP1AppPath += "\\";
+            SporeEP1AppPath += "SporebinEP1\\SporeApp.exe";
         }
 
         private static object? GetRegistryValue(string keyName, string valueName) =>

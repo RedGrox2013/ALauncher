@@ -5,7 +5,8 @@
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <SolidColorBrush x:Key="BottomPanelBackground" Color="#FF71A94C"/>
-        
+        <SolidColorBrush x:Key="PagesTopPanelBackground" Color="#FF3CAAE8"/>
+
         <Style x:Key="LauncherButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="{StaticResource BottomPanelBackground}"/>
             <Setter Property="Template">
@@ -24,6 +25,31 @@
             </Style.Triggers>
         </Style>
 
+        <Style x:Key="PagesGoBackBtnStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource PagesTopPanelBackground}"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" ClipToBounds="True">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <ContentPresenter.Content>
+                                    ⬅️
+                                </ContentPresenter.Content>
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF2E83B1"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
         <Style x:Key="SettingsTextBoxStyle" TargetType="TextBox">
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Height" Value="30"/>

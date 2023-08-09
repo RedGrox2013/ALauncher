@@ -39,13 +39,10 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.ColumnSpan="2" Background="#FF3CAAE8" Orientation="Horizontal">
-            <Button Background="#FF3CAAE8"
-                    Width="60"
+        <StackPanel Grid.ColumnSpan="2" Background="{StaticResource PagesTopPanelBackground}" Orientation="Horizontal">
+            <Button Style="{StaticResource PagesGoBackBtnStyle}"
                     Command="{Binding GoBackCommand}"
-                    CommandParameter="{Binding ElementName=SettingsPg}">
-                ⬅️
-            </Button>
+                    CommandParameter="{Binding ElementName=SettingsPg}"/>
             <TextBlock Text="Настройка/Дополнительно"
                        FontSize="20"
                        VerticalAlignment="Center"
@@ -64,7 +61,8 @@
                     Command="{Binding BrowseBtnCommand}"
                     Content="Обзор"/>
             <TextBox Style="{StaticResource SettingsTextBoxStyle}"
-                     Text="{Binding ModAPIPath, UpdateSourceTrigger=PropertyChanged}"/>
+                     Text="{Binding ModAPIPath, UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="{Binding ModAPIPath, UpdateSourceTrigger=PropertyChanged}"/>
         </DockPanel>
         <TextBlock Grid.Row="3" Style="{StaticResource TextBlockStyle}">
             Путь до Steam
@@ -79,7 +77,8 @@
                     Command="{Binding BrowseSteamBtnCommand}"
                     Content="Обзор"/>
             <TextBox Style="{StaticResource SettingsTextBoxStyle}"
-                     Text="{Binding SteamPath, UpdateSourceTrigger=PropertyChanged}"/>
+                     Text="{Binding SteamPath, UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="{Binding SteamPath, UpdateSourceTrigger=PropertyChanged}"/>
         </DockPanel>
         <TextBlock Grid.Row="4" Style="{StaticResource TextBlockStyle}">
                 Spore аргументы:
@@ -88,6 +87,7 @@
                  Grid.Column="2"
                  Style="{StaticResource SettingsTextBoxStyle}"
                  Text="{Binding LineArguments, UpdateSourceTrigger=PropertyChanged}"
+                 ToolTip="{Binding LineArguments, UpdateSourceTrigger=PropertyChanged}"
                  Margin="10"/>
         <TextBlock Grid.Row="5" Style="{StaticResource TextBlockStyle}">
             Язык игры

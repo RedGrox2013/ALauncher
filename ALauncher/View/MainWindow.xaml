@@ -22,8 +22,7 @@
         </Grid.RowDefinitions>
 
         <Image Source="../Images/Background.jpg" Stretch="UniformToFill"/>
-        <Frame Name="MainFrame"
-               Content="{Binding CurrentPage, UpdateSourceTrigger=PropertyChanged}"
+        <Frame Content="{Binding CurrentPage, UpdateSourceTrigger=PropertyChanged}"
                NavigationUIVisibility="Hidden"/>
 
         <!--Нижняя панель-->
@@ -48,10 +47,9 @@
             </Grid.ColumnDefinitions>
 
             <!--Аккаунты-->
-            <ComboBox Name="AccountList"
-                     Margin="10,20"
-                     Height="25"
-                     ToolTip="Только для владельцев аккаунтов на spore.com">
+            <ComboBox Margin="10,20"
+                      Height="25"
+                      ToolTip="Только для владельцев аккаунтов на spore.com">
                 <TextBlock>В разработке...</TextBlock>
             </ComboBox>
             <!--Версия для запуска-->
@@ -76,8 +74,7 @@
             </ComboBox>
             
             <!--############## Войти в игру ##############-->
-            <Button Name="LaunchGameBtn"
-                    Grid.Column="2"
+            <Button Grid.Column="2"
                     Margin="10"
                     FontSize="20"
                     Foreground="White"
@@ -88,24 +85,21 @@
             <!--##########################################-->
 
             <!--Сохранения-->
-            <Button Name="SavesBtn"
-                    Grid.Column="3"
+            <Button Grid.Column="3"
                     Style="{StaticResource LauncherButtonStyle}"
                     ToolTip="Сохранения"
                     Command="{Binding SavesBtnCommand}">
                 <Image Source="../Images/save-btn.png"/>
             </Button>
             <!--Моды-->
-            <Button Name="ModsBtn"
-                    Grid.Column="4"
+            <Button Grid.Column="4"
                     Style="{StaticResource LauncherButtonStyle}"
                     ToolTip="Моды"
-                    Command="{Binding SavesBtnCommand}">
+                    Command="{Binding ModsBtnCommand}">
                 <Image Source="../Images/mods-btn.png"/>
             </Button>
             <!--Творения-->
-            <Button Name="CreationsBtn"
-                    Grid.Column="5"
+            <Button Grid.Column="5"
                     Style="{StaticResource LauncherButtonStyle}"
                     ToolTip="Мои творения"
                     Command="{Binding ShowExplorerCommand}"
@@ -113,8 +107,7 @@
                 <Image Source="../Images/creations-btn.png"/>
             </Button>
             <!--Файлы-->
-            <Button Name="FilesBtn"
-                    Grid.Column="6"
+            <Button Grid.Column="6"
                     Style="{StaticResource LauncherButtonStyle}"
                     ToolTip="Файлы"
                     Command="{Binding ShowExplorerCommand}"
@@ -122,8 +115,7 @@
                 <Image Source="../Images/files-btn.png"/>
             </Button>
             <!--Настройки-->
-            <Button Name="SettingsBtn"
-                    Grid.Column="7"
+            <Button Grid.Column="7"
                     Style="{StaticResource LauncherButtonStyle}"
                     ToolTip="Настройки"
                     Command="{Binding SettingsBtnCommand}">

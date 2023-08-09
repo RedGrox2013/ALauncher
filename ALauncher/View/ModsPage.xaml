@@ -1,0 +1,35 @@
+﻿<Page x:Class="ALauncher.View.ModsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ALauncher.View"
+      xmlns:vm="clr-namespace:ALauncher.ViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="585" d:DesignWidth="1066"
+      Name="ModsPg"
+      Title="ModsPage">
+
+    <Page.DataContext>
+        <vm:ModsViewModel/>
+    </Page.DataContext>
+    
+    <Grid Background="White" Height="450" Width="600">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Background="{StaticResource PagesTopPanelBackground}" Orientation="Horizontal">
+            <Button Style="{StaticResource PagesGoBackBtnStyle}"
+                    Command="{Binding GoBackCommand}"
+                    CommandParameter="{Binding ElementName=ModsPg}"/>
+            <TextBlock Text="Моды"
+                       FontSize="20"
+                       Foreground="White"
+                       Margin="230,0,0,0"/>
+        </StackPanel>
+        
+        <Image Grid.Row="1" Source="../Images/Dev.png"/>
+    </Grid>
+</Page>

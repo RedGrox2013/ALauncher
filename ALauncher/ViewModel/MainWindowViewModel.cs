@@ -13,6 +13,7 @@ namespace ALauncher.ViewModel
 
         public ICommand ShowExplorerCommand { get; private set; }
         public ICommand SavesBtnCommand { get; private set; }
+        public ICommand ModsBtnCommand { get; private set; }
         public ICommand SettingsBtnCommand { get; private set; }
         public ICommand LaunchGameCommand { get; private set; }
 
@@ -29,6 +30,7 @@ namespace ALauncher.ViewModel
         }
 
         private SavesPage? _savesPage;
+        private ModsPage? _modsPage;
         private Page _currentPage;
         public Page CurrentPage
         {
@@ -54,6 +56,8 @@ namespace ALauncher.ViewModel
             SettingsBtnCommand = new RelayCommand((o) =>
                 CurrentPage = new SettingsPage());
             LaunchGameCommand = new RelayCommand(LaunchGame);
+            ModsBtnCommand = new RelayCommand((o) =>
+                CurrentPage = _modsPage ??= new ModsPage());
         }
 
         private void LaunchGame(object? arg)

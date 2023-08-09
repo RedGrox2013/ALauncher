@@ -2,7 +2,7 @@
 
 Лаунчер для Spore
 
-*Потом по-нормальному всё оформлю*
+![preview](Preview.png)
 
 ---
 ## Spore ModAPI Launcher Kit

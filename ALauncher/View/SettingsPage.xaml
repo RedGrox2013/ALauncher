@@ -67,7 +67,9 @@
                      Text="{Binding ModAPIPath, UpdateSourceTrigger=PropertyChanged}"/>
         </DockPanel>
         <TextBlock Grid.Row="3" Style="{StaticResource TextBlockStyle}">
-                Путь до ModAPI:
+            Путь до Steam
+            <LineBreak/>
+            (необязательно):
         </TextBlock>
         <DockPanel Grid.Row="3" Grid.Column="1" Margin="10" LastChildFill="True">
             <Button DockPanel.Dock="Right"

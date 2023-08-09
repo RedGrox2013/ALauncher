@@ -58,7 +58,7 @@ namespace ALauncher.ViewModel
 
         private void LaunchGame(object? arg)
         {
-            if (_settings.IsSteamVersion && _settings.SteamPath == null)
+            if (_settings.IsSteamVersion && string.IsNullOrWhiteSpace(_settings.SteamPath))
             {
                 MessageBox.Show("Не найден Steam", "Ошибка!",
                     MessageBoxButton.OK, MessageBoxImage.Error);

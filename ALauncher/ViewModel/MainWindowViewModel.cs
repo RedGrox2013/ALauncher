@@ -107,7 +107,20 @@ namespace ALauncher.ViewModel
                         arguments = "http://davoonline.com/sporemodder/rob55rod/ModAPI/Public/index.html";
                     }
                     else
+                    {
+                        if (_settings.IsSteamVersion)
+                        {
+                            var steamProc = Process.GetProcessesByName("steam");
+                            if (steamProc.Length == 0)
+                            {
+                                MessageBox.Show("Дождитесь запуска Steam", "Steam не запущен",
+                                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                                Process.Start(steamPath);
+                                return;
+                            }
+                        }
                         processName = _settings.ModAPIPath + "\\" + Settings.MODAPI_NAME;
+                    }
                     break;
                 case 1:
                     if (_settings.IsSteamVersion)

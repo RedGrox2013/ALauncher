@@ -93,16 +93,7 @@ namespace ALauncher
         public SporeLanguages Language { get; set; }
         public bool IsFirstStart { get; set; } = true;
 
-        private int _selectedGameIndex = 0;
-        public int SelectedGameIndex
-        {
-            get => _selectedGameIndex;
-            set
-            {
-                _selectedGameIndex = value;
-                Serialize();
-            }
-        }
+        public int SelectedGameIndex { get; set; }
 
         private Settings()
         {

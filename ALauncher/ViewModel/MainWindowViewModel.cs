@@ -25,6 +25,7 @@ namespace ALauncher.ViewModel
             set
             {
                 _settings.SelectedGameIndex = value;
+                Settings.Serialize();
                 OnPropertyChanged();
             }
         }

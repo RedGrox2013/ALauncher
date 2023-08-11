@@ -130,13 +130,18 @@
         <StackPanel Grid.ColumnSpan="2"
                     Orientation="Horizontal"
                     Grid.Row="8"
-                    Height="33"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     Margin="20">
-            <Button Name="SaveBtn"
+            <Button Margin="10"
+                    Width="200"
+                    Style="{StaticResource GreenButtonStyle}"
+                    Command="{Binding SetDefaultBtnCommand}">
+                По умолчанию
+            </Button>
+            <Button Margin="10"
                     Width="170"
-                    FontSize="18"
+                    Style="{StaticResource OrangeButtonStyle}"
                     Command="{Binding SaveBtnCommand}"
                     CommandParameter="{Binding ElementName=SettingsPg}">
                 Сохранить

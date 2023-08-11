@@ -48,4 +48,10 @@
     <Resource Include="Images\vanilla-icon.ico" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Что делать, если не работает.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -25,9 +25,7 @@ namespace ALauncher.ViewModel
 
             try
             {
-                if (_settings.ModAPIPath[^1] != '\\' || _settings.ModAPIPath[^1] != '/')
-                    _settings.ModAPIPath += "\\";
-                Process.Start(_settings.ModAPIPath + fileName?.ToString());
+                Process.Start(_settings.ModAPIPath + "\\" + fileName);
             }
             catch
             {

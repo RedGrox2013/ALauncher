@@ -15,7 +15,7 @@ namespace ALauncher.ViewModel
             get => _modAPIPath;
             set
             {
-                _modAPIPath = value;
+                _modAPIPath = value.TrimEnd('\\', '/');
                 OnPropertyChanged();
             }
         }

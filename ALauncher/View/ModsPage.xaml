@@ -18,6 +18,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <StackPanel Background="{StaticResource PagesTopPanelBackground}" Orientation="Horizontal">
@@ -31,5 +32,28 @@
         </StackPanel>
         
         <Image Grid.Row="1" Source="../Images/Dev.png"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="10" HorizontalAlignment="Center">
+            <Button Height="35" Width="160" Margin="5">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../Images/easy-installer-icon.ico"/>
+                    <TextBlock>
+                        Использовать ModAPI
+                        <LineBreak/>
+                        Easy Installer
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Height="35" Width="160" Margin="5">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../Images/easy-uninstaller-icon.ico"/>
+                    <TextBlock>
+                        Использовать ModAPI
+                        <LineBreak/>
+                        Easy Uninstaller
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

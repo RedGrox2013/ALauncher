@@ -17,6 +17,8 @@
     <None Remove="Images\Background.jpg" />
     <None Remove="Images\creations-btn.png" />
     <None Remove="Images\Dev.png" />
+    <None Remove="Images\easy-installer-icon.ico" />
+    <None Remove="Images\easy-uninstaller-icon.ico" />
     <None Remove="Images\files-btn.png" />
     <None Remove="Images\ga-icon.ico" />
     <None Remove="Images\go-back.png" />
@@ -33,6 +35,8 @@
     <Resource Include="Images\Background.jpg" />
     <Resource Include="Images\creations-btn.png" />
     <Resource Include="Images\Dev.png" />
+    <Resource Include="Images\easy-installer-icon.ico" />
+    <Resource Include="Images\easy-uninstaller-icon.ico" />
     <Resource Include="Images\files-btn.png" />
     <Resource Include="Images\ga-icon.ico" />
     <Resource Include="Images\go-back.png" />

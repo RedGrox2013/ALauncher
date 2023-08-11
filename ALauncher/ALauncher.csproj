@@ -19,6 +19,7 @@
     <None Remove="Images\Dev.png" />
     <None Remove="Images\files-btn.png" />
     <None Remove="Images\ga-icon.ico" />
+    <None Remove="Images\go-back.png" />
     <None Remove="Images\modapi-icon.ico" />
     <None Remove="Images\mods-btn.png" />
     <None Remove="Images\save-btn.png" />
@@ -34,6 +35,7 @@
     <Resource Include="Images\Dev.png" />
     <Resource Include="Images\files-btn.png" />
     <Resource Include="Images\ga-icon.ico" />
+    <Resource Include="Images\go-back.png" />
     <Resource Include="Images\modapi-icon.ico" />
     <Resource Include="Images\mods-btn.png" />
     <Resource Include="Images\save-btn.png" />

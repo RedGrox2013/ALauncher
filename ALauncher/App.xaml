@@ -36,7 +36,8 @@
                         <Border Background="{TemplateBinding Background}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" ClipToBounds="True">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <ContentPresenter.Content>
-                                    ⬅️
+                                    <!--Потом поправлю размеры стрелочки-->
+                                    <Image Source="Images/go-back.png"/>
                                 </ContentPresenter.Content>
                             </ContentPresenter>
                         </Border>

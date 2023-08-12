@@ -6,6 +6,13 @@
     <Application.Resources>
         <SolidColorBrush x:Key="PagesTopPanelBackground" Color="#FF3CAAE8"/>
 
+        <Style x:Key="LauncherTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontFamily" Value="Fonts/#PF BeauSans Pro"/>
+        </Style>
+
         <Style x:Key="LauncherButtonStyle">
             <Setter Property="Button.Template">
                 <Setter.Value>

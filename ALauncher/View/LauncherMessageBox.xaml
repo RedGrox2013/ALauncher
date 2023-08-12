@@ -5,14 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ALauncher.View"
         mc:Ignorable="d"
-        Height="Auto" Width="500"
-        MinHeight="300"
+        Width="500"
+        SizeToContent="Height"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Name="TxtBlck" Text="Hello world!"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Name="TxtBlck" Grid.Column="1" TextWrapping="Wrap" Style="{StaticResource LauncherTextBlockStyle}" Text="Hello world!"/>
+        <Image Name="IconImage"/>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <Button Name="OkBtn" Width="80" Style="{StaticResource GreenButtonStyle}" Margin="10" Content="Ок"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -17,7 +17,7 @@ namespace ALauncher.View
         private void DebugBtn_Click(object sender, RoutedEventArgs e)
         {
             LauncherMessageBox.Show("Test");
-            LauncherMessageBox.Show("Test 2", "Title");
+            LauncherMessageBox.Show("Test 2 njkdsanfkjsdngjkdfsngjbfdjh gbhjfdbghj dfjhfgbhjds bvjhsdb ghjdsg usdg jgsdfyug uydfgf uhdsfg yudgfhjfvdg hjdhg", "Title");
         }
 #endif
     }

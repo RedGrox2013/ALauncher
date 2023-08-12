@@ -14,15 +14,6 @@
         <vm:SettingsViewModel/>
     </Page.DataContext>
 
-    <Page.Resources>
-        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="FontFamily" Value="../Fonts/#PF BeauSans Pro"/>
-        </Style>
-    </Page.Resources>
-    
     <Grid Background="White" Height="530" Width="620">
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -51,7 +42,7 @@
                        Foreground="White"
                        Margin="150,0,0,0"/>
         </StackPanel>
-        <TextBlock Grid.Row="2" Style="{StaticResource TextBlockStyle}">
+        <TextBlock Grid.Row="2" Style="{StaticResource LauncherTextBlockStyle}">
                 Путь до ModAPI:
         </TextBlock>
         <DockPanel Grid.Row="2" Grid.Column="1" Margin="10" LastChildFill="True">
@@ -65,7 +56,7 @@
                      Text="{Binding ModAPIPath, UpdateSourceTrigger=PropertyChanged}"
                      ToolTip="{Binding ModAPIPath, UpdateSourceTrigger=PropertyChanged}"/>
         </DockPanel>
-        <TextBlock Grid.Row="3" Style="{StaticResource TextBlockStyle}">
+        <TextBlock Grid.Row="3" Style="{StaticResource LauncherTextBlockStyle}">
             Путь до Steam
             <LineBreak/>
             (необязательно):
@@ -81,7 +72,7 @@
                      Text="{Binding SteamPath, UpdateSourceTrigger=PropertyChanged}"
                      ToolTip="{Binding SteamPath, UpdateSourceTrigger=PropertyChanged}"/>
         </DockPanel>
-        <TextBlock Grid.Row="4" Style="{StaticResource TextBlockStyle}">
+        <TextBlock Grid.Row="4" Style="{StaticResource LauncherTextBlockStyle}">
                 Spore аргументы:
         </TextBlock>
         <TextBox Grid.Row="4"
@@ -90,7 +81,7 @@
                  Text="{Binding LineArguments, UpdateSourceTrigger=PropertyChanged}"
                  ToolTip="{Binding LineArguments, UpdateSourceTrigger=PropertyChanged}"
                  Margin="10"/>
-        <TextBlock Grid.Row="5" Style="{StaticResource TextBlockStyle}">
+        <TextBlock Grid.Row="5" Style="{StaticResource LauncherTextBlockStyle}">
             Язык игры
         </TextBlock>
         <ComboBox Grid.Row="5"
@@ -118,7 +109,7 @@
             <ComboBoxItem>Svenska</ComboBoxItem>
             <ComboBoxItem>Português</ComboBoxItem>
         </ComboBox>
-        <TextBlock Grid.Row="6" Style="{StaticResource TextBlockStyle}">
+        <TextBlock Grid.Row="6" Style="{StaticResource LauncherTextBlockStyle}">
             Steam-овская версия
         </TextBlock>
         <CheckBox Grid.Row="6"

@@ -16,9 +16,10 @@
 
     <Page.Resources>
         <Style x:Key="TextBlockStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontFamily" Value="../Fonts/#PF BeauSans Pro"/>
         </Style>
     </Page.Resources>
     
@@ -35,7 +36,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="170"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
@@ -134,13 +135,13 @@
                     VerticalAlignment="Bottom"
                     Margin="20">
             <Button Margin="10"
-                    Width="200"
+                    Width="170"
                     Style="{StaticResource GreenButtonStyle}"
                     Command="{Binding SetDefaultBtnCommand}">
                 По умолчанию
             </Button>
             <Button Margin="10"
-                    Width="170"
+                    Width="140"
                     Style="{StaticResource OrangeButtonStyle}"
                     Command="{Binding SaveBtnCommand}"
                     CommandParameter="{Binding ElementName=SettingsPg}">

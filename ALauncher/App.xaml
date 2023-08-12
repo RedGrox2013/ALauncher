@@ -22,9 +22,9 @@
 
         <Style x:Key="ColorButtonStyle" BasedOn="{StaticResource LauncherButtonStyle}">
             <Setter Property="Button.Foreground" Value="White"/>
-            <Setter Property="Button.FontSize" Value="18"/>
+            <Setter Property="Button.FontSize" Value="14"/>
             <Setter Property="Button.Height" Value="30"/>
-            <Setter Property="Button.FontFamily" Value="Dubai Medium"/>
+            <Setter Property="Button.FontFamily" Value="Fonts/#PF BeauSans Pro"/>
         </Style>
         <Style x:Key="OrangeButtonStyle" BasedOn="{StaticResource ColorButtonStyle}" TargetType="Button">
             <Setter Property="Button.Background" Value="#FFEC8230"/>

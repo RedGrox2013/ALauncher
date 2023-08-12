@@ -36,12 +36,11 @@
         <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="10" HorizontalAlignment="Center">
             <Button Height="45" Width="205" Margin="10"
                     Style="{StaticResource GreenButtonStyle}"
-                    FontSize="15"
                     Command="{Binding StartModsManagerCommand}"
                     CommandParameter="Spore ModAPI Easy Installer.exe">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Images/easy-installer-icon.ico"/>
-                    <TextBlock>
+                    <TextBlock VerticalAlignment="Center">
                         Использовать ModAPI
                         <LineBreak/>
                         Easy Installer
@@ -50,12 +49,11 @@
             </Button>
             <Button Height="45" Width="205" Margin="10"
                     Style="{StaticResource OrangeButtonStyle}"
-                    FontSize="15"
                     Command="{Binding StartModsManagerCommand}"
                     CommandParameter="Spore ModAPI Easy Uninstaller.exe">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Images/easy-uninstaller-icon.ico"/>
-                    <TextBlock>
+                    <TextBlock VerticalAlignment="Center">
                         Использовать ModAPI
                         <LineBreak/>
                         Easy Uninstaller

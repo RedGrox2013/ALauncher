@@ -97,10 +97,7 @@ namespace ALauncher.ViewModel
                 case 0:
                     if (string.IsNullOrEmpty(_settings.ModAPIPath))
                     {
-                        MessageBox.Show("Пожалуйста, укажите путь до SporeModAPI. " +
-                            "Если у вас не установлен Spore ModAPI Launcher, " +
-                            "вы можете сделать это в открывшемся окне", "Проверьте настройки",
-                            MessageBoxButton.OK, MessageBoxImage.Error);
+                        LauncherMessageBox.ShowModAPIError();
                         if (CurrentPage is not SettingsPage)
                             CurrentPage = new SettingsPage();
                         processName = EXPLORER;

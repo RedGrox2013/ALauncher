@@ -19,11 +19,40 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         
-        <TextBlock Name="TxtBlck" Grid.Column="1" TextWrapping="Wrap" Style="{StaticResource LauncherTextBlockStyle}" Text="Hello world!"/>
+        <TextBlock Name="TxtBlck" Grid.Column="1" TextWrapping="Wrap" Style="{StaticResource LauncherTextBlockStyle}"/>
         <Image Name="IconImage"/>
 
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
-            <Button Name="OkBtn" Width="80" Style="{StaticResource GreenButtonStyle}" Margin="10" Content="Ок"/>
+        <StackPanel Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button Name="CancelBtn"
+                    Width="80"
+                    Style="{StaticResource OrangeButtonStyle}"
+                    Margin="10"
+                    Visibility="Collapsed"
+                    Content="Отмена"
+                    Click="Btn_Click"/>
+            <Button Name="NoBtn"
+                    Width="80"
+                    Style="{StaticResource OrangeButtonStyle}"
+                    Margin="10"
+                    Visibility="Collapsed"
+                    Content="Нет"
+                    Click="Btn_Click"/>
+            <Button Name="YesBtn"
+                    Width="80"
+                    Style="{StaticResource GreenButtonStyle}"
+                    Margin="10"
+                    Visibility="Collapsed"
+                    Content="Да"
+                    Click="Btn_Click"/>
+            <Button Name="OkBtn" Width="80"
+                    Style="{StaticResource GreenButtonStyle}"
+                    Margin="10"
+                    Content="Ок"
+                    Visibility="Collapsed"
+                    Click="Btn_Click"/>
         </StackPanel>
     </Grid>
 </Window>

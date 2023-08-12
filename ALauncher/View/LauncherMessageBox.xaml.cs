@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ALauncher.View
 {
@@ -19,20 +8,66 @@ namespace ALauncher.View
     /// </summary>
     public partial class LauncherMessageBox : Window
     {
-        public MessageBoxResult Result { get; private set; }
+        private MessageBoxResult _result;
 
-        public LauncherMessageBox(string message, string? title = null)
+        public LauncherMessageBox(object message, string? title = null,
+            MessageBoxButton button = MessageBoxButton.OK)
         {
             InitializeComponent();
-            TxtBlck.Text = message;
-            Title = title ?? string.Empty;
+
+            TxtBlck.Text = message.ToString();
+            if (!string.IsNullOrWhiteSpace(title))
+                Title = title;
+
+            switch (button)
+            {
+                case MessageBoxButton.OK:
+                    OkBtn.Visibility = Visibility.Visible;
+                    _result = MessageBoxResult.OK;
+                    break;
+                case MessageBoxButton.OKCancel:
+                    OkBtn.Visibility = CancelBtn.Visibility = Visibility.Visible;
+                    _result = MessageBoxResult.Cancel;
+                    break;
+                case MessageBoxButton.YesNoCancel:
+                    YesBtn.Visibility = NoBtn.Visibility =
+                        CancelBtn.Visibility = Visibility.Visible;
+                    _result = MessageBoxResult.Cancel;
+                    break;
+                case MessageBoxButton.YesNo:
+                    YesBtn.Visibility = NoBtn.Visibility = Visibility.Visible;
+                    _result = MessageBoxResult.No;
+                    break;
+            }
         }
 
-        public static MessageBoxResult Show(string message, string? title = null)
+        public static MessageBoxResult Show(object message, string? title = null,
+            MessageBoxButton button = MessageBoxButton.OK)
         {
-            var msgBox = new LauncherMessageBox(message, title);
+            var msgBox = new LauncherMessageBox(message, title, button);
             msgBox.ShowDialog();
-            return msgBox.Result;
+            return msgBox._result;
+        }
+        public static void ShowModAPIError()
+            => Show("Пожалуйста, укажите путь до Spore ModAPI. " +
+                    "Если у вас не установлен Spore ModAPI Launcher, " +
+                    "вы можете сделать это в открывшемся окне",
+                    "Проверьте настройки");
+
+        private void Btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                if (btn == OkBtn)
+                    _result = MessageBoxResult.OK;
+                else if (btn == CancelBtn)
+                    _result = MessageBoxResult.Cancel;
+                else if (btn == YesBtn)
+                    _result = MessageBoxResult.Yes;
+                else if (btn == NoBtn)
+                    _result = MessageBoxResult.No;
+            }
+            Close();
         }
     }
 }

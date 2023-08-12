@@ -2,7 +2,7 @@
 то вам нужно скачать последнюю версию .NET
 
 Ссылка:
-https://dotnet.microsoft.com/en-us/download
+https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-7.0.10-windows-x64-installer?cid=getdotnetcore
 
 Последние версии лаунчера появляются тут:
 https://github.com/RedGrox2013/ALauncher/releases

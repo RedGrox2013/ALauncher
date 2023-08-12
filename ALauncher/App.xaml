@@ -4,23 +4,43 @@
              xmlns:local="clr-namespace:ALauncher"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-        <SolidColorBrush x:Key="BottomPanelBackground" Color="#FF71A94C"/>
         <SolidColorBrush x:Key="PagesTopPanelBackground" Color="#FF3CAAE8"/>
 
-        <Style x:Key="LauncherButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="{StaticResource BottomPanelBackground}"/>
-            <Setter Property="Template">
+        <Style x:Key="LauncherButtonStyle">
+            <Setter Property="Button.Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" ClipToBounds="True">
-                            <ContentPresenter Content="{TemplateBinding Content}"/>
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+
+        <Style x:Key="ColorButtonStyle" BasedOn="{StaticResource LauncherButtonStyle}">
+            <Setter Property="Button.Foreground" Value="White"/>
+            <Setter Property="Button.FontSize" Value="18"/>
+            <Setter Property="Button.Height" Value="30"/>
+            <Setter Property="Button.FontFamily" Value="Dubai Medium"/>
+        </Style>
+        <Style x:Key="OrangeButtonStyle" BasedOn="{StaticResource ColorButtonStyle}" TargetType="Button">
+            <Setter Property="Button.Background" Value="#FFEC8230"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#FF527F35"/>
+                    <!--Изменить цвет-->
+                    <Setter Property="Background" Value="#FFD26F22"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="GreenButtonStyle" BasedOn="{StaticResource ColorButtonStyle}" TargetType="Button">
+            <Setter Property="Background" Value="#FF6FC72E"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <!--Изменить цвет-->
+                    <Setter Property="Background" Value="#FF57AA1A"/>
                 </Trigger>
             </Style.Triggers>
         </Style>

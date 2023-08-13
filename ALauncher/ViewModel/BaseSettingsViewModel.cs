@@ -15,7 +15,7 @@ namespace ALauncher.ViewModel
             get => _modAPIPath;
             set
             {
-                _modAPIPath = value.TrimEnd('\\', '/');
+                _modAPIPath = value;
                 OnPropertyChanged();
             }
         }
@@ -76,7 +76,7 @@ namespace ALauncher.ViewModel
 
         protected virtual void SaveSettings(object? obj)
         {
-            settings.ModAPIPath = _modAPIPath;
+            settings.ModAPIPath = _modAPIPath.TrimEnd('\\', '/');
             settings.SteamPath = _steamPath;
             settings.IsSteamVersion = _isSteamVersion;
             settings.LineArguments = _lineArgs;

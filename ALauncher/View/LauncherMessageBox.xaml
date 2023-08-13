@@ -19,8 +19,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         
-        <TextBlock Name="TxtBlck" Grid.Column="1" TextWrapping="Wrap" Style="{StaticResource LauncherTextBlockStyle}"/>
-        <Image Name="IconImage"/>
+        <TextBlock Name="MsgBoxText" Grid.Column="1" TextWrapping="Wrap" Style="{StaticResource LauncherTextBlockStyle}"/>
+        <Image Name="MsgBoxIcon" Margin="10"/>
 
         <StackPanel Grid.Row="1"
                     Grid.ColumnSpan="2"

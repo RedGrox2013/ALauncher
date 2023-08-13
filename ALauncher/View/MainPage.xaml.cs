@@ -16,14 +16,8 @@ namespace ALauncher.View
 #if DEBUG
         private void DebugBtn_Click(object sender, RoutedEventArgs e)
         {
-            var rez = LauncherMessageBox.Show("Test");
-            rez = LauncherMessageBox.Show(rez,
-                button:MessageBoxButton.OKCancel);
-            rez = LauncherMessageBox.Show(rez,
-                button: MessageBoxButton.YesNoCancel);
-            rez = LauncherMessageBox.Show(rez,
-                button: MessageBoxButton.YesNo);
-            MessageBox.Show(rez.ToString());
+            var rez = LauncherMessageBox.Show("Test", image:LauncherMessageBoxImage.Question);
+            MessageBox.Show(rez.ToString(), "Test", MessageBoxButton.OK, MessageBoxImage.Question);
         }
 #endif
     }

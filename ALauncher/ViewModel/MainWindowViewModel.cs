@@ -65,8 +65,8 @@ namespace ALauncher.ViewModel
         {
             if (_settings.IsSteamVersion && string.IsNullOrWhiteSpace(_settings.SteamPath))
             {
-                MessageBox.Show("Не найден Steam", "Ошибка!",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                LauncherMessageBox.Show("Не найден Steam", "Ошибка!",
+                    image:LauncherMessageBoxImage.Error);
                 return;
             }
             string steamPath = _settings.SteamPath ?? string.Empty;
@@ -110,8 +110,8 @@ namespace ALauncher.ViewModel
                             var steamProc = Process.GetProcessesByName("steam");
                             if (steamProc.Length == 0)
                             {
-                                MessageBox.Show("Дождитесь запуска Steam", "Steam не запущен",
-                                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                                LauncherMessageBox.Show("Дождитесь запуска Steam", "Steam не запущен",
+                                    image: LauncherMessageBoxImage.Warning);
                                 Process.Start(steamPath);
                                 return;
                             }
@@ -151,8 +151,8 @@ namespace ALauncher.ViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Ошибка!",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                LauncherMessageBox.Show(ex.Message, "Ошибка!",
+                    image: LauncherMessageBoxImage.Error);
             }
         }
     }

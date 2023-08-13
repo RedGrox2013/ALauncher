@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ALauncher.View;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ALauncher.ViewModel
@@ -43,8 +44,8 @@ namespace ALauncher.ViewModel
         {
             if (string.IsNullOrWhiteSpace(ModAPIPath) && !_noModAPI)
             {
-                MessageBox.Show("Введите путь до ModAPI", "Ошибка!",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                LauncherMessageBox.Show("Введите путь до ModAPI", "Ошибка!",
+                    image: LauncherMessageBoxImage.Error);
                 return;
             }
 

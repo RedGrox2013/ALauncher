@@ -46,7 +46,7 @@ namespace ALauncher.View
             }
             if (image != LauncherMessageBoxImage.None)
             {
-                MsgBoxIcon.Source = new BitmapImage(new Uri($"pack://application:,,,/Images/MessageBox/{image}.png"));
+                Icon = MsgBoxIcon.Source = new BitmapImage(new Uri($"pack://application:,,,/Images/MessageBox/{image}.png"));
                 using SoundPlayer soundPlayer = new();
                 switch (image)
                 {
@@ -76,7 +76,7 @@ namespace ALauncher.View
             => Show("Пожалуйста, укажите путь до Spore ModAPI. " +
                     "Если у вас не установлен Spore ModAPI Launcher, " +
                     "вы можете сделать это в открывшемся окне",
-                    "Проверьте настройки");
+                    "Проверьте настройки", image:LauncherMessageBoxImage.Error);
 
         private void Btn_Click(object sender, RoutedEventArgs e)
         {

@@ -30,33 +30,42 @@
                        Foreground="White"
                        Margin="230,0,0,0"/>
         </StackPanel>
-        
-        <Image Grid.Row="1" Source="../Images/Dev.png"/>
+
+        <TextBlock Grid.Row="1" Style="{StaticResource LauncherTextBlockStyle}" TextWrapping="WrapWithOverflow">
+            ALauncher пока использует ModAPI Launcher Kit для установки и
+            удаления модов, поэтому убедитесь, что у вас установлен
+            ModAPI Launcher Kit. В противном случае вам придётся
+            устанавливать моды вручную.
+            <LineBreak/>
+            <LineBreak/>
+            P.S. В будущем ALauncher сможет самостоятельно
+            устанавливать и удалять моды.
+        </TextBlock>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="10" HorizontalAlignment="Center">
-            <Button Height="45" Width="205" Margin="10"
+            <Button Height="45" Width="210" Margin="10"
                     Style="{StaticResource GreenButtonStyle}"
                     Command="{Binding StartModsManagerCommand}"
                     CommandParameter="Spore ModAPI Easy Installer.exe">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Images/easy-installer-icon.ico"/>
                     <TextBlock VerticalAlignment="Center">
-                        Использовать ModAPI
+                        Установить с помощью
                         <LineBreak/>
-                        Easy Installer
+                        ModAPI Easy Installer
                     </TextBlock>
                 </StackPanel>
             </Button>
-            <Button Height="45" Width="205" Margin="10"
+            <Button Height="45" Width="210" Margin="10"
                     Style="{StaticResource OrangeButtonStyle}"
                     Command="{Binding StartModsManagerCommand}"
                     CommandParameter="Spore ModAPI Easy Uninstaller.exe">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Images/easy-uninstaller-icon.ico"/>
                     <TextBlock VerticalAlignment="Center">
-                        Использовать ModAPI
+                        Удалить с помощью
                         <LineBreak/>
-                        Easy Uninstaller
+                        ModAPI Easy Uninstaller
                     </TextBlock>
                 </StackPanel>
             </Button>

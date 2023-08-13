@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace ALauncher.View
 {
@@ -12,13 +11,5 @@ namespace ALauncher.View
         {
             InitializeComponent();
         }
-
-#if DEBUG
-        private void DebugBtn_Click(object sender, RoutedEventArgs e)
-        {
-            var rez = LauncherMessageBox.Show("Test", image:LauncherMessageBoxImage.Question);
-            MessageBox.Show(rez.ToString(), "Test", MessageBoxButton.OK, MessageBoxImage.Question);
-        }
-#endif
     }
 }

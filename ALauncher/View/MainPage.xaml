@@ -45,16 +45,6 @@
                                Foreground="White"
                                FontSize="15"
                                Text="ЛАУНЧЕР ДЛЯ SPORE"/>
-                    <!--#if DEBUG-->
-                    <Button Name="DebugBtn"
-                            Grid.Row="3"
-                            Height="30"
-                            Width="100"
-                            VerticalAlignment="Top"
-                            Margin="40"
-                            Content="DebugBtn"
-                            Click="DebugBtn_Click"/>
-                    <!--#endif-->
                 </Grid>
 
                 <!--<Grid>

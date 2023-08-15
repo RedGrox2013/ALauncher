@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!-- Main page and window -->
+    <sys:String x:Key="MainPageTitle">ЛАУНЧЕР ДЛЯ SPORE</sys:String>
+    <sys:String x:Key="EnterTheGame">Войти в игру</sys:String>
+    
+    <!-- Launcher message box -->
+    <sys:String x:Key="ModAPIError">
+        Пожалуйста, укажите путь до Spore ModAPI. Если у вас не установлен Spore ModAPI Launcher, вы можете сделать это в открывшемся окне.
+    </sys:String>
+    <sys:String x:Key="ModAPIErrorTitle">Проверьте настройки</sys:String>
+    
+    <!-- Settings page -->
+    <sys:String x:Key="SettingsPageTitle">Настройка/Дополнительно</sys:String>
+    <sys:String x:Key="SettingsModAPIPath">Путь до ModAPI:</sys:String>
+    <sys:String x:Key="SettingsSteamPath">Путь до Steam:</sys:String>
+    <sys:String x:Key="SettingsLineArguments">Spore аргументы:</sys:String>
+    <sys:String x:Key="SettingsGameLanguage">Язык игры:</sys:String>
+    <sys:String x:Key="SettingsSteamVersion">Версия из Steam:</sys:String>
+    <sys:String x:Key="BtnDefaultText">По умолчанию</sys:String>
+    <sys:String x:Key="BtnSaveText">Сохранить</sys:String>
+    
+    <!-- Mods page -->
+    <sys:String x:Key="ModsPageTitle">Моды</sys:String>
+</ResourceDictionary>

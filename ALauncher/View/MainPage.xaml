@@ -44,7 +44,7 @@
                                FontFamily="Candara Light"
                                Foreground="White"
                                FontSize="15"
-                               Text="ЛАУНЧЕР ДЛЯ SPORE"/>
+                               Text="{DynamicResource MainPageTitle}"/>
                 </Grid>
 
                 <!--<Grid>

@@ -25,7 +25,7 @@
             <Button Style="{StaticResource PagesGoBackBtnStyle}"
                     Command="{Binding GoBackCommand}"
                     CommandParameter="{Binding ElementName=ModsPg}"/>
-            <TextBlock Text="Моды"
+            <TextBlock Text="{DynamicResource ModsPageTitle}"
                        FontSize="20"
                        Foreground="White"
                        Margin="230,0,0,0"/>

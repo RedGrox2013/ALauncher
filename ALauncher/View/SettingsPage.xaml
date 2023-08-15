@@ -35,16 +35,16 @@
             <Button Style="{StaticResource PagesGoBackBtnStyle}"
                     Command="{Binding GoBackCommand}"
                     CommandParameter="{Binding ElementName=SettingsPg}"/>
-            <TextBlock Text="Настройка/Дополнительно"
+            <TextBlock Text="{DynamicResource SettingsPageTitle}"
                        FontSize="20"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Foreground="White"
                        Margin="150,0,0,0"/>
         </StackPanel>
-        <TextBlock Grid.Row="2" Style="{StaticResource LauncherTextBlockStyle}">
-                Путь до ModAPI:
-        </TextBlock>
+        <TextBlock Grid.Row="2"
+                   Style="{StaticResource LauncherTextBlockStyle}"
+                   Text="{DynamicResource SettingsModAPIPath}"/>
         <DockPanel Grid.Row="2" Grid.Column="1" Margin="10" LastChildFill="True">
             <Button DockPanel.Dock="Right"
                     Margin="5"
@@ -56,11 +56,9 @@
                      Text="{Binding ModAPIPath, UpdateSourceTrigger=PropertyChanged}"
                      ToolTip="{Binding ModAPIPath, UpdateSourceTrigger=PropertyChanged}"/>
         </DockPanel>
-        <TextBlock Grid.Row="3" Style="{StaticResource LauncherTextBlockStyle}">
-            Путь до Steam
-            <LineBreak/>
-            (необязательно):
-        </TextBlock>
+        <TextBlock Grid.Row="3"
+                   Style="{StaticResource LauncherTextBlockStyle}"
+                   Text="{DynamicResource SettingsSteamPath}"/>
         <DockPanel Grid.Row="3" Grid.Column="1" Margin="10" LastChildFill="True">
             <Button DockPanel.Dock="Right"
                     Margin="5"
@@ -72,18 +70,18 @@
                      Text="{Binding SteamPath, UpdateSourceTrigger=PropertyChanged}"
                      ToolTip="{Binding SteamPath, UpdateSourceTrigger=PropertyChanged}"/>
         </DockPanel>
-        <TextBlock Grid.Row="4" Style="{StaticResource LauncherTextBlockStyle}">
-                Spore аргументы:
-        </TextBlock>
+        <TextBlock Grid.Row="4"
+                   Style="{StaticResource LauncherTextBlockStyle}"
+                   Text="{DynamicResource SettingsLineArguments}"/>
         <TextBox Grid.Row="4"
                  Grid.Column="2"
                  Style="{StaticResource SettingsTextBoxStyle}"
                  Text="{Binding LineArguments, UpdateSourceTrigger=PropertyChanged}"
                  ToolTip="{Binding LineArguments, UpdateSourceTrigger=PropertyChanged}"
                  Margin="10"/>
-        <TextBlock Grid.Row="5" Style="{StaticResource LauncherTextBlockStyle}">
-            Язык игры
-        </TextBlock>
+        <TextBlock Grid.Row="5"
+                   Style="{StaticResource LauncherTextBlockStyle}"
+                   Text="{DynamicResource SettingsGameLanguage}"/>
         <ComboBox Grid.Row="5"
                   Grid.Column="1"
                   Height="25"
@@ -109,9 +107,9 @@
             <ComboBoxItem>Svenska</ComboBoxItem>
             <ComboBoxItem>Português</ComboBoxItem>
         </ComboBox>
-        <TextBlock Grid.Row="6" Style="{StaticResource LauncherTextBlockStyle}">
-            Steam-овская версия
-        </TextBlock>
+        <TextBlock Grid.Row="6"
+                   Style="{StaticResource LauncherTextBlockStyle}"
+                   Text="{DynamicResource SettingsSteamVersion}"/>
         <CheckBox Grid.Row="6"
                   Grid.Column="1"
                   Margin="10"
@@ -128,16 +126,14 @@
             <Button Margin="10"
                     Width="170"
                     Style="{StaticResource GreenButtonStyle}"
-                    Command="{Binding SetDefaultBtnCommand}">
-                По умолчанию
-            </Button>
+                    Command="{Binding SetDefaultBtnCommand}"
+                    Content="{DynamicResource BtnDefaultText}"/>
             <Button Margin="10"
                     Width="140"
                     Style="{StaticResource OrangeButtonStyle}"
                     Command="{Binding SaveBtnCommand}"
-                    CommandParameter="{Binding ElementName=SettingsPg}">
-                Сохранить
-            </Button>
+                    CommandParameter="{Binding ElementName=SettingsPg}"
+                    Content="{DynamicResource BtnSaveText}"/>
         </StackPanel>
     </Grid>
 </Page>

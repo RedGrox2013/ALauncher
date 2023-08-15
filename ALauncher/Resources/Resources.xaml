@@ -6,7 +6,7 @@
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="10"/>
-        <Setter Property="FontFamily" Value="Fonts/#PF BeauSans Pro"/>
+        <Setter Property="FontFamily" Value="../Fonts/#PF BeauSans Pro"/>
     </Style>
 
     <Style x:Key="LauncherButtonStyle">

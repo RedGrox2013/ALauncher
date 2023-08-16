@@ -23,4 +23,12 @@
     
     <!-- Mods page -->
     <sys:String x:Key="ModsPageTitle">Моды</sys:String>
+    
+    <!-- Saves page -->
+    <sys:String x:Key="SavesPageTitle">Сохранения</sys:String>
+    <sys:String x:Key="SavesDescription">
+        Вы можете переключаться между вошими сохранениями.
+        Для этого просто выделете то сохранение,
+        которое вы хотите сделать активным.
+    </sys:String>
 </ResourceDictionary>

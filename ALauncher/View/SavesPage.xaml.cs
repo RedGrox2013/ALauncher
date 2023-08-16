@@ -11,8 +11,5 @@ namespace ALauncher.View
         {
             InitializeComponent();
         }
-
-        private void OkBtn_Click(object sender, System.Windows.RoutedEventArgs e) =>
-            NavigationService.GoBack();
     }
 }

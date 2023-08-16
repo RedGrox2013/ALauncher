@@ -13,8 +13,9 @@
     <Page.DataContext>
         <vm:ModsViewModel/>
     </Page.DataContext>
-    
-    <Grid Background="White" Height="450" Width="600">
+
+    <!-- Height="450" -->
+    <Grid Background="White" Height="230" Width="600">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>

@@ -12,6 +12,9 @@
         вы можете сделать это в открывшемся окне.
     </sys:String>
     <sys:String x:Key="ModAPIErrorTitle">Проверьте настройки</sys:String>
+    <sys:String x:Key="CancelBtnText">Отмена</sys:String>
+    <sys:String x:Key="NoBtnText">Нет</sys:String>
+    <sys:String x:Key="YesBtnText">Да</sys:String>
     
     <!-- Settings page -->
     <sys:String x:Key="SettingsPageTitle">Настройка/Дополнительно</sys:String>
@@ -39,4 +42,6 @@
     <sys:String x:Key="RenameSaveBtnText">Переименовать</sys:String>
     <sys:String x:Key="DeleteSaveBtnText">Удалить</sys:String>
     <sys:String x:Key="AddSaveBtnText">Добавить</sys:String>
+    <sys:String x:Key="RenameWindowText">Введите новое имя:</sys:String>
+    <sys:String x:Key="RenameWindowTitle">Переименовать</sys:String>
 </ResourceDictionary>

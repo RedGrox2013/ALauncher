@@ -31,26 +31,26 @@
                     Style="{StaticResource OrangeButtonStyle}"
                     Margin="10"
                     Visibility="Collapsed"
-                    Content="Отмена"
+                    Content="{DynamicResource CancelBtnText}"
                     Click="Btn_Click"/>
             <Button Name="NoBtn"
                     Width="80"
                     Style="{StaticResource OrangeButtonStyle}"
                     Margin="10"
                     Visibility="Collapsed"
-                    Content="Нет"
+                    Content="{DynamicResource NoBtnText}"
                     Click="Btn_Click"/>
             <Button Name="YesBtn"
                     Width="80"
                     Style="{StaticResource GreenButtonStyle}"
                     Margin="10"
                     Visibility="Collapsed"
-                    Content="Да"
+                    Content="{DynamicResource YesBtnText}"
                     Click="Btn_Click"/>
             <Button Name="OkBtn" Width="80"
                     Style="{StaticResource GreenButtonStyle}"
                     Margin="10"
-                    Content="Ок"
+                    Content="OK"
                     Visibility="Collapsed"
                     Click="Btn_Click"/>
         </StackPanel>

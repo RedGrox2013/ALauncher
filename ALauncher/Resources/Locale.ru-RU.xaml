@@ -43,5 +43,4 @@
     <sys:String x:Key="DeleteSaveBtnText">Удалить</sys:String>
     <sys:String x:Key="AddSaveBtnText">Добавить</sys:String>
     <sys:String x:Key="RenameWindowText">Введите новое имя:</sys:String>
-    <sys:String x:Key="RenameWindowTitle">Переименовать</sys:String>
 </ResourceDictionary>

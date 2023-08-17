@@ -13,9 +13,12 @@
     <Page.DataContext>
         <vm:SavesPageViewModel/>
     </Page.DataContext>
-    
-    <Grid Background="White" Height="450" Width="600">
+
+    <Grid Background="White" Height="420" Width="600">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -28,16 +31,44 @@
             <TextBlock Text="{DynamicResource SavesPageTitle}"
                FontSize="20"
                Foreground="White"
-               Margin="210,0,0,0"/>
+               Margin="200,0,0,0"/>
         </StackPanel>
 
         <TextBlock Grid.Row="1"
                    TextWrapping="WrapWithOverflow"
                    Text="{DynamicResource SavesDescription}"
                    Style="{StaticResource LauncherTextBlockStyle}"/>
-        <ListBox Height="250"
-                 Grid.Row="2"
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock Text="{DynamicResource CurrentSaveText}"
+                       Style="{StaticResource LauncherTextBlockStyle}"/>
+            <TextBlock FontSize="20"
+                       Style="{StaticResource LauncherTextBlockStyle}"
+                       Text="{Binding CurrentSave, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Style="{StaticResource OrangeButtonStyle}"
+                    Content="{DynamicResource RenameSaveBtnText}"
+                    Width="130"/>
+        </StackPanel>
+        <ListBox Height="200"
+                 Grid.Row="4"
                  Margin="10"
                  ItemsSource="{Binding Saves, UpdateSourceTrigger=PropertyChanged}"/>
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Style="{StaticResource GreenButtonStyle}"
+                    Content="{DynamicResource SetActiveBtnText}"
+                    Width="150"
+                    Margin="10"/>
+            <Button Style="{StaticResource GreenButtonStyle}"
+                Margin="10"
+                Width="80"
+                Content="{DynamicResource AddSaveBtnText}"/>
+            <Button Style="{StaticResource OrangeButtonStyle}"
+                    Content="{DynamicResource DeleteSaveBtnText}"
+                    Width="80"
+                    Margin="10"/>
+            <Button Style="{StaticResource OrangeButtonStyle}"
+                    Content="{DynamicResource RenameSaveBtnText}"
+                    Width="150"
+                    Margin="10"/>
+        </StackPanel>
     </Grid>
 </Page>

@@ -14,9 +14,21 @@ namespace ALauncher.ViewModel
                 OnPropertyChanged();
             }
         }
+        private string _currentSave;
+        public string CurrentSave
+        {
+            get => _currentSave;
+            set
+            {
+                _currentSave = value;
+                OnPropertyChanged();
+            }
+        }
 
         public SavesPageViewModel()
         {
+            _currentSave = GameSave.GetCurrentSave("My Galaxy");
+
             var savesDirs = GameSave.CreateSavesDirectory().GetDirectories();
             if (savesDirs.Length == 0)
                 return;

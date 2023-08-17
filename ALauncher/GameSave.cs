@@ -1,12 +1,11 @@
 ﻿using System;
 using System.IO;
-using System.Text.RegularExpressions;
 
 namespace ALauncher
 {
     partial class GameSave
     {
-        private DirectoryInfo _directory;
+        private readonly DirectoryInfo _directory;
 
         private static string? _savesPath;
         public static string SavesPath => _savesPath ??=
@@ -22,6 +21,21 @@ namespace ALauncher
                 _name = value;
                 _directory.MoveTo(SavesPath + value);
             }
+        }
+
+        public const string CURRENT_SAVE_FILE_NAME = "CurrentSave";
+
+        public static string GetCurrentSave(string defaultSaveName)
+        {
+            CreateSavesDirectory();
+            if (!File.Exists(SavesPath + CURRENT_SAVE_FILE_NAME))
+            {
+                using var writer = File.CreateText(SavesPath + CURRENT_SAVE_FILE_NAME);
+                writer.Write(defaultSaveName);
+                return defaultSaveName;
+            }
+
+            return File.ReadAllText(SavesPath + CURRENT_SAVE_FILE_NAME);
         }
 
         //public GameSave(string? name = null)
@@ -51,8 +65,8 @@ namespace ALauncher
             _name = directory.Name;
         }
 
-        [GeneratedRegex("My Save*")]
-        private static partial Regex SaveRegex();
+        //[GeneratedRegex("My Save*")]
+        //private static partial Regex SaveRegex();
 
         public override string ToString() => _name;
 

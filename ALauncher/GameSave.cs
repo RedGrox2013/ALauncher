@@ -64,10 +64,18 @@ namespace ALauncher
 
         //    _directory = new DirectoryInfo(SavesPath + _name);
         //}
+        public GameSave(string name)
+        {
+            _name = name;
+            _directory = Directory.CreateDirectory(SavesPath + name);
+        }
         public GameSave(DirectoryInfo directory)
         {
             _directory = directory;
             _name = directory.Name;
+
+            if (!directory.Exists)
+                directory.Create();
         }
 
         //[GeneratedRegex("My Save*")]
@@ -82,6 +90,12 @@ namespace ALauncher
                 dir.Create();
 
             return dir;
+        }
+
+        public void Delete()
+        {
+            if (_directory.Exists)
+                _directory.Delete(true);
         }
     }
 }

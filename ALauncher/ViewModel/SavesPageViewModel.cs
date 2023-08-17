@@ -1,20 +1,35 @@
 ﻿using ALauncher.View;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ALauncher.ViewModel
 {
     class SavesPageViewModel : BaseViewModel
     {
-        public ICommand RenameCurrentSaveBtnCommand { get; set; }
+        public ICommand RenameCurrentSaveBtnCommand { get; private set; }
+        public ICommand AddSaveBtnCommand { get; private set; }
+        public ICommand DeleteSaveBtnCommand { get; private set; }
 
-        private List<GameSave>? _saves;
-        public List<GameSave>? Saves
+        private ObservableCollection<GameSave>? _saves;
+        public ObservableCollection<GameSave>? Saves
         {
             get => _saves;
             set
             {
                 _saves = value;
+                OnPropertyChanged();
+            }
+        }
+        private int _selectedIndex;
+        public int SelectedIndex
+        {
+            get => _selectedIndex;
+            set
+            {
+                _selectedIndex = value;
                 OnPropertyChanged();
             }
         }
@@ -33,15 +48,52 @@ namespace ALauncher.ViewModel
         public SavesPageViewModel()
         {
             _currentSave = GameSave.GetCurrentSave("My Galaxy");
+            _selectedIndex = -1;
+
             RenameCurrentSaveBtnCommand = new RelayCommand((o) => CurrentSave = RenameSave(_currentSave));
+            AddSaveBtnCommand = new RelayCommand(AddSave);
+            DeleteSaveBtnCommand = new RelayCommand(DeleteSave);
 
             var savesDirs = GameSave.CreateSavesDirectory().GetDirectories();
             if (savesDirs.Length == 0)
                 return;
 
-            _saves = new List<GameSave>(savesDirs.Length);
+            _saves = new ObservableCollection<GameSave>();
             foreach (var save in savesDirs)
                 _saves.Add(new GameSave(save));
+        }
+
+        private void DeleteSave(object? obj)
+        {
+            if (_selectedIndex < 0 || _saves == null)
+            {
+                ShowIndexError();
+                return;
+            }
+
+            var rez = LauncherMessageBox.Show(
+                "После удаления это сохранение нельзя будет восстановить. Удалить сохранение?",
+                "Вы уверены?",
+                MessageBoxButton.YesNoCancel, LauncherMessageBoxImage.Warning);
+            if (rez != MessageBoxResult.Yes)
+                return;
+
+            _saves[_selectedIndex].Delete();
+            _saves.RemoveAt(_selectedIndex);
+            OnPropertyChanged(nameof(Saves));
+            SelectedIndex = -1;
+        }
+
+        private void AddSave(object? obj)
+        {
+            var win = new RenameSaveWindow();
+            win.ShowDialog();
+            if (string.IsNullOrWhiteSpace(win.SaveName))
+                return;
+
+            _saves ??= new ObservableCollection<GameSave>();
+            _saves.Add(new GameSave(win.SaveName));
+            OnPropertyChanged(nameof(Saves));
         }
 
         private static string RenameSave(string name)
@@ -51,5 +103,9 @@ namespace ALauncher.ViewModel
             
             return string.IsNullOrWhiteSpace(win.SaveName) ? name : win.SaveName;
         }
+
+        private static void ShowIndexError()
+            => LauncherMessageBox.Show("Сначала выберете сохранение", "Ошибка!",
+                    image: LauncherMessageBoxImage.Error);
     }
 }

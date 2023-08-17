@@ -55,16 +55,19 @@
         <ListBox Height="200"
                  Grid.Row="4"
                  Margin="10"
+                 SelectedIndex="{Binding SelectedIndex, UpdateSourceTrigger=PropertyChanged}"
                  ItemsSource="{Binding Saves, UpdateSourceTrigger=PropertyChanged}"/>
         <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Style="{StaticResource GreenButtonStyle}"
                     Content="{DynamicResource SetActiveBtnText}"
                     Width="150"/>
             <Button Style="{StaticResource GreenButtonStyle}"
+                    Command="{Binding AddSaveBtnCommand}"
                     Width="80"
                     Content="{DynamicResource AddSaveBtnText}"/>
             <Button Style="{StaticResource OrangeButtonStyle}"
                     Content="{DynamicResource DeleteSaveBtnText}"
+                    Command="{Binding DeleteSaveBtnCommand}"
                     Width="80"/>
             <Button Style="{StaticResource OrangeButtonStyle}"
                     Content="{DynamicResource RenameSaveBtnText}"

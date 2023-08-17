@@ -27,6 +27,7 @@
         <Setter Property="Button.Foreground" Value="White"/>
         <Setter Property="Button.FontSize" Value="14"/>
         <Setter Property="Button.Height" Value="30"/>
+        <Setter Property="Button.Margin" Value="10"/>
         <Setter Property="Button.FontFamily" Value="../Fonts/#PF BeauSans Pro"/>
     </Style>
     <Style x:Key="OrangeButtonStyle" BasedOn="{StaticResource ColorButtonStyle}" TargetType="Button">

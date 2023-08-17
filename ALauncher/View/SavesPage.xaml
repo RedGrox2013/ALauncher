@@ -35,10 +35,9 @@
                    TextWrapping="WrapWithOverflow"
                    Text="{DynamicResource SavesDescription}"
                    Style="{StaticResource LauncherTextBlockStyle}"/>
-        <ListBox Height="250" Grid.Row="2" Margin="10">
-            <ListBoxItem>
-                Ывывы
-            </ListBoxItem>
-        </ListBox>
+        <ListBox Height="250"
+                 Grid.Row="2"
+                 Margin="10"
+                 ItemsSource="{Binding Saves, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </Page>

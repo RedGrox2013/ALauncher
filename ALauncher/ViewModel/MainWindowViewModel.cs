@@ -30,8 +30,6 @@ namespace ALauncher.ViewModel
             }
         }
 
-        private SavesPage? _savesPage;
-        private ModsPage? _modsPage;
         private Page _currentPage;
         public Page CurrentPage
         {
@@ -53,12 +51,12 @@ namespace ALauncher.ViewModel
             ShowExplorerCommand = new RelayCommand((param) =>
                 Process.Start(EXPLORER, param?.ToString() ?? string.Empty));
             SavesBtnCommand = new RelayCommand((o) =>
-                CurrentPage = _savesPage ??= new SavesPage());
+                CurrentPage = new SavesPage());
             SettingsBtnCommand = new RelayCommand((o) =>
                 CurrentPage = new SettingsPage());
             LaunchGameCommand = new RelayCommand(LaunchGame);
             ModsBtnCommand = new RelayCommand((o) =>
-                CurrentPage = _modsPage ??= new ModsPage());
+                CurrentPage = new ModsPage());
         }
 
         private void LaunchGame(object? arg)

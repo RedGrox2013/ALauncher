@@ -30,12 +30,17 @@ namespace ALauncher
             CreateSavesDirectory();
             if (!File.Exists(SavesPath + CURRENT_SAVE_FILE_NAME))
             {
-                using var writer = File.CreateText(SavesPath + CURRENT_SAVE_FILE_NAME);
-                writer.Write(defaultSaveName);
+                RenameCurrentSave(defaultSaveName);
                 return defaultSaveName;
             }
 
             return File.ReadAllText(SavesPath + CURRENT_SAVE_FILE_NAME);
+        }
+        public static void RenameCurrentSave(string saveName)
+        {
+            CreateSavesDirectory();
+            using var writer = File.CreateText(SavesPath + CURRENT_SAVE_FILE_NAME);
+            writer.Write(saveName);
         }
 
         //public GameSave(string? name = null)

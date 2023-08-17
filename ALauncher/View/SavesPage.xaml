@@ -42,10 +42,14 @@
             <TextBlock Text="{DynamicResource CurrentSaveText}"
                        Style="{StaticResource LauncherTextBlockStyle}"/>
             <TextBlock FontSize="20"
+                       Width="150"
+                       TextTrimming="CharacterEllipsis"
                        Style="{StaticResource LauncherTextBlockStyle}"
-                       Text="{Binding CurrentSave, UpdateSourceTrigger=PropertyChanged}"/>
+                       Text="{Binding CurrentSave, UpdateSourceTrigger=PropertyChanged}"
+                       ToolTip="{Binding CurrentSave, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Style="{StaticResource OrangeButtonStyle}"
                     Content="{DynamicResource RenameSaveBtnText}"
+                    Command="{Binding RenameCurrentSaveBtnCommand}"
                     Width="130"/>
         </StackPanel>
         <ListBox Height="200"
@@ -55,20 +59,16 @@
         <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Style="{StaticResource GreenButtonStyle}"
                     Content="{DynamicResource SetActiveBtnText}"
-                    Width="150"
-                    Margin="10"/>
+                    Width="150"/>
             <Button Style="{StaticResource GreenButtonStyle}"
-                Margin="10"
-                Width="80"
-                Content="{DynamicResource AddSaveBtnText}"/>
+                    Width="80"
+                    Content="{DynamicResource AddSaveBtnText}"/>
             <Button Style="{StaticResource OrangeButtonStyle}"
                     Content="{DynamicResource DeleteSaveBtnText}"
-                    Width="80"
-                    Margin="10"/>
+                    Width="80"/>
             <Button Style="{StaticResource OrangeButtonStyle}"
                     Content="{DynamicResource RenameSaveBtnText}"
-                    Width="150"
-                    Margin="10"/>
+                    Width="150"/>
         </StackPanel>
     </Grid>
 </Page>

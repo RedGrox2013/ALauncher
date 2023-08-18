@@ -3,7 +3,10 @@
     <SolidColorBrush x:Key="PagesTopPanelBackground" Color="#FF3CAAE8"/>
 
     <Style x:Key="LauncherTextBlockStyle" TargetType="TextBlock">
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontSize" Value="13"/>
+        <!--<Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Ideal"/>-->
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="FontFamily" Value="../Fonts/#PF BeauSans Pro"/>

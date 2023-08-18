@@ -1,4 +1,5 @@
 ﻿using ALauncher.View;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
@@ -11,6 +12,7 @@ namespace ALauncher.ViewModel
         public ICommand RenameSaveBtnCommand { get; private set; }
         public ICommand AddSaveBtnCommand { get; private set; }
         public ICommand DeleteSaveBtnCommand { get; private set; }
+        public ICommand SetActiveBtnCommand { get; private set; }
 
         private ObservableCollection<GameSave>? _saves;
         public ObservableCollection<GameSave>? Saves
@@ -40,19 +42,23 @@ namespace ALauncher.ViewModel
             {
                 _currentSave = value;
                 OnPropertyChanged();
-                GameSave.RenameCurrentSave(value);
             }
         }
 
         public SavesPageViewModel()
         {
-            _currentSave = GameSave.GetCurrentSave("My Galaxy");
+            _currentSave = GameSave.GetCurrentSaveName("My Galaxy");
             _selectedIndex = -1;
 
-            RenameCurrentSaveBtnCommand = new RelayCommand((o) => CurrentSave = RenameSave(_currentSave));
+            RenameCurrentSaveBtnCommand = new RelayCommand((o) =>
+            {
+                CurrentSave = RenameSave(_currentSave);
+                GameSave.RenameCurrentSave(_currentSave);
+            });
             RenameSaveBtnCommand = new RelayCommand(Rename);
             AddSaveBtnCommand = new RelayCommand(AddSave);
             DeleteSaveBtnCommand = new RelayCommand(DeleteSave);
+            SetActiveBtnCommand = new RelayCommand(SetActiveSave);
 
             var savesDirs = GameSave.CreateSavesDirectory().GetDirectories();
             if (savesDirs.Length == 0)
@@ -61,6 +67,22 @@ namespace ALauncher.ViewModel
             _saves = new ObservableCollection<GameSave>();
             foreach (var save in savesDirs)
                 _saves.Add(new GameSave(save));
+        }
+
+        private void SetActiveSave(object? obj)
+        {
+            if (_selectedIndex < 0 || _saves == null)
+            {
+                ShowIndexError();
+                return;
+            }
+
+            CurrentSave = _saves[_selectedIndex].Name;
+            var oldSave = GameSave.ReplaceCurrentSave(_saves[_selectedIndex]);
+            _saves.RemoveAt(_selectedIndex);
+            _saves.Add(oldSave);
+            OnPropertyChanged(nameof(Saves));
+            SelectedIndex = -1;
         }
 
         private void Rename(object? obj)

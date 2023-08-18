@@ -7,10 +7,13 @@ namespace ALauncher
     {
         private readonly DirectoryInfo _directory;
 
+        private static string? _launcherSavesPath;
+        public static string LauncherSavesPath => _launcherSavesPath ??=
+            SavesPath + ALAUNCHER_DIRECTORY_NAME;
         private static string? _savesPath;
         public static string SavesPath => _savesPath ??=
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-                "\\Spore\\Games\\ALauncher\\";
+                "\\Spore\\Games\\";
 
         private string _name;
         public string Name
@@ -19,28 +22,59 @@ namespace ALauncher
             set
             {
                 _name = value;
-                _directory.MoveTo(SavesPath + value);
+                _directory.MoveTo(LauncherSavesPath + "\\" + value);
             }
         }
+        public string Path => _directory.FullName;
 
         public const string CURRENT_SAVE_FILE_NAME = "CurrentSave";
+        public const string ALAUNCHER_DIRECTORY_NAME = "ALauncher";
 
-        public static string GetCurrentSave(string defaultSaveName)
+        public static string GetCurrentSaveName(string defaultSaveName)
         {
             CreateSavesDirectory();
-            if (!File.Exists(SavesPath + CURRENT_SAVE_FILE_NAME))
+            if (!File.Exists(LauncherSavesPath + "\\" + CURRENT_SAVE_FILE_NAME))
             {
                 RenameCurrentSave(defaultSaveName);
                 return defaultSaveName;
             }
 
-            return File.ReadAllText(SavesPath + CURRENT_SAVE_FILE_NAME);
+            return File.ReadAllText(LauncherSavesPath + "\\" + CURRENT_SAVE_FILE_NAME);
         }
         public static void RenameCurrentSave(string saveName)
         {
             CreateSavesDirectory();
-            using var writer = File.CreateText(SavesPath + CURRENT_SAVE_FILE_NAME);
+            using var writer = File.CreateText(LauncherSavesPath + "\\" + CURRENT_SAVE_FILE_NAME);
             writer.Write(saveName);
+        }
+        /// <summary>
+        /// Заменяет одно сохранение на другое
+        /// </summary>
+        /// <param name="save">Новое сохранение</param>
+        /// <returns>Старое сохранение</returns>
+        public static GameSave ReplaceCurrentSave(GameSave save)
+        {
+            GameSave oldSave = new(GetCurrentSaveName(string.Empty));
+            var saveDirs = Directory.GetDirectories(SavesPath);
+            foreach (var saveDir in saveDirs)
+            {
+                if (saveDir != LauncherSavesPath)
+                {
+                    var dir = new DirectoryInfo(saveDir);
+                    dir.MoveTo(oldSave.Path + "\\" + dir.Name);
+                }
+            }
+
+            RenameCurrentSave(save.Name);
+            saveDirs = Directory.GetDirectories(save.Path);
+            foreach (var saveDir in saveDirs)
+            {
+                var dir = new DirectoryInfo(saveDir);
+                dir.MoveTo(SavesPath + dir.Name);
+            }
+            save.Delete();
+
+            return oldSave;
         }
 
         //public GameSave(string? name = null)
@@ -67,7 +101,7 @@ namespace ALauncher
         public GameSave(string name)
         {
             _name = name;
-            _directory = Directory.CreateDirectory(SavesPath + name);
+            _directory = Directory.CreateDirectory(LauncherSavesPath + "\\" + name);
         }
         public GameSave(DirectoryInfo directory)
         {
@@ -85,7 +119,7 @@ namespace ALauncher
 
         public static DirectoryInfo CreateSavesDirectory()
         {
-            var dir = new DirectoryInfo(SavesPath);
+            var dir = new DirectoryInfo(LauncherSavesPath);
             if (!dir.Exists)
                 dir.Create();
 

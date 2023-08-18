@@ -1,6 +1,4 @@
 ﻿using ALauncher.View;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
@@ -10,6 +8,7 @@ namespace ALauncher.ViewModel
     class SavesPageViewModel : BaseViewModel
     {
         public ICommand RenameCurrentSaveBtnCommand { get; private set; }
+        public ICommand RenameSaveBtnCommand { get; private set; }
         public ICommand AddSaveBtnCommand { get; private set; }
         public ICommand DeleteSaveBtnCommand { get; private set; }
 
@@ -51,6 +50,7 @@ namespace ALauncher.ViewModel
             _selectedIndex = -1;
 
             RenameCurrentSaveBtnCommand = new RelayCommand((o) => CurrentSave = RenameSave(_currentSave));
+            RenameSaveBtnCommand = new RelayCommand(Rename);
             AddSaveBtnCommand = new RelayCommand(AddSave);
             DeleteSaveBtnCommand = new RelayCommand(DeleteSave);
 
@@ -61,6 +61,26 @@ namespace ALauncher.ViewModel
             _saves = new ObservableCollection<GameSave>();
             foreach (var save in savesDirs)
                 _saves.Add(new GameSave(save));
+        }
+
+        private void Rename(object? obj)
+        {
+            if (_selectedIndex < 0 || _saves == null)
+            {
+                ShowIndexError();
+                return;
+            }
+
+            var newName = RenameSave(_saves[_selectedIndex].Name);
+            if (newName != _saves[_selectedIndex].Name)
+            {
+                var index = _selectedIndex;
+                var save = _saves[index];
+                _saves.Remove(save);
+                save.Name = newName;
+                _saves.Insert(index, save);
+                OnPropertyChanged(nameof(Saves));
+            }
         }
 
         private void DeleteSave(object? obj)
@@ -100,12 +120,12 @@ namespace ALauncher.ViewModel
         {
             var win = new RenameSaveWindow(name);
             win.ShowDialog();
-            
+
             return string.IsNullOrWhiteSpace(win.SaveName) ? name : win.SaveName;
         }
 
         private static void ShowIndexError()
-            => LauncherMessageBox.Show("Сначала выберете сохранение", "Ошибка!",
+            => LauncherMessageBox.Show("Сначала выберите сохранение", "Ошибка!",
                     image: LauncherMessageBoxImage.Error);
     }
 }

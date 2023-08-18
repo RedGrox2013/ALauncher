@@ -71,6 +71,7 @@
                     Width="80"/>
             <Button Style="{StaticResource OrangeButtonStyle}"
                     Content="{DynamicResource RenameSaveBtnText}"
+                    Command="{Binding RenameSaveBtnCommand}"
                     Width="150"/>
         </StackPanel>
     </Grid>

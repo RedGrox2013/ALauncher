@@ -22,7 +22,7 @@ namespace ALauncher
             set
             {
                 _name = value;
-                _directory.MoveTo(LauncherSavesPath + "\\" + value);
+                _directory.MoveTo(LauncherSavesPath + "/" + value);
             }
         }
         public string Path => _directory.FullName;
@@ -30,21 +30,31 @@ namespace ALauncher
         public const string CURRENT_SAVE_FILE_NAME = "CurrentSave";
         public const string ALAUNCHER_DIRECTORY_NAME = "ALauncher";
 
+        /// <summary>
+        /// Читает файл CurrentSave и возвращает имя текущего сохранения.
+        /// Если файл отсутсвует, создат новый
+        /// </summary>
+        /// <param name="defaultSaveName">Имя сохранения, если файл отсутствует</param>
+        /// <returns>Имя текущего сохранения</returns>
         public static string GetCurrentSaveName(string defaultSaveName)
         {
             CreateSavesDirectory();
-            if (!File.Exists(LauncherSavesPath + "\\" + CURRENT_SAVE_FILE_NAME))
+            if (!File.Exists(LauncherSavesPath + "/" + CURRENT_SAVE_FILE_NAME))
             {
                 RenameCurrentSave(defaultSaveName);
                 return defaultSaveName;
             }
 
-            return File.ReadAllText(LauncherSavesPath + "\\" + CURRENT_SAVE_FILE_NAME);
+            return File.ReadAllText(LauncherSavesPath + "/" + CURRENT_SAVE_FILE_NAME);
         }
+        /// <summary>
+        /// Переименовывает текущее сохранение, изменяя файл CurrentSave
+        /// </summary>
+        /// <param name="saveName">Имя сохранения</param>
         public static void RenameCurrentSave(string saveName)
         {
             CreateSavesDirectory();
-            using var writer = File.CreateText(LauncherSavesPath + "\\" + CURRENT_SAVE_FILE_NAME);
+            using var writer = File.CreateText(LauncherSavesPath + "/" + CURRENT_SAVE_FILE_NAME);
             writer.Write(saveName);
         }
         /// <summary>
@@ -61,7 +71,7 @@ namespace ALauncher
                 if (saveDir != LauncherSavesPath)
                 {
                     var dir = new DirectoryInfo(saveDir);
-                    dir.MoveTo(oldSave.Path + "\\" + dir.Name);
+                    dir.MoveTo(oldSave.Path + "/" + dir.Name);
                 }
             }
 
@@ -77,31 +87,10 @@ namespace ALauncher
             return oldSave;
         }
 
-        //public GameSave(string? name = null)
-        //{
-        //    if (string.IsNullOrWhiteSpace(name))
-        //    {
-        //        string[] dirs = Directory.GetDirectories(SavesPath);
-        //        int count = 0;
-        //        foreach (string dir in dirs)
-        //        {
-        //            Regex regex = SaveRegex();
-        //            if (regex.IsMatch(dir))
-        //                ++count;
-        //        }
-        //        _name = "My Save";
-        //        if (count > 0)
-        //            _name += $" ({count})";
-        //    }
-        //    else
-        //        _name = name;
-
-        //    _directory = new DirectoryInfo(SavesPath + _name);
-        //}
         public GameSave(string name)
         {
             _name = name;
-            _directory = Directory.CreateDirectory(LauncherSavesPath + "\\" + name);
+            _directory = Directory.CreateDirectory(LauncherSavesPath + "/" + name);
         }
         public GameSave(DirectoryInfo directory)
         {
@@ -112,11 +101,12 @@ namespace ALauncher
                 directory.Create();
         }
 
-        //[GeneratedRegex("My Save*")]
-        //private static partial Regex SaveRegex();
-
         public override string ToString() => _name;
 
+        /// <summary>
+        /// Создаёт папку "ALauncher" в %appdata%/spore/games
+        /// </summary>
+        /// <returns></returns>
         public static DirectoryInfo CreateSavesDirectory()
         {
             var dir = new DirectoryInfo(LauncherSavesPath);
@@ -126,6 +116,9 @@ namespace ALauncher
             return dir;
         }
 
+        /// <summary>
+        /// Удаляет директорию сохранения в папке "ALauncher"
+        /// </summary>
         public void Delete()
         {
             if (_directory.Exists)

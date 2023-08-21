@@ -8,6 +8,12 @@
       d:DesignHeight="585" d:DesignWidth="1066"
       Title="MainPage">
 
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="38"/>
+        </Style>
+    </Page.Resources>
+    
     <Grid>
         <ScrollViewer>
             <Grid>
@@ -45,6 +51,16 @@
                                Foreground="White"
                                FontSize="15"
                                Text="{DynamicResource MainPageTitle}"/>
+
+                    <StackPanel Grid.Row="2" Margin="6,10">
+                        <Button Margin="1">Button1</Button>
+                        <Button Margin="2">Button2</Button>
+                        <Button Margin="2">Button3</Button>
+                        <Button Margin="2">Button4</Button>
+
+                        <Button Margin="2,6,2,2">Button5</Button>
+                        <Button Margin="2">Button6</Button>
+                    </StackPanel>
                 </Grid>
 
                 <!--<Grid>

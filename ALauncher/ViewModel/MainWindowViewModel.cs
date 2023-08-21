@@ -1,7 +1,6 @@
 ﻿using ALauncher.View;
 using System;
 using System.Diagnostics;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -120,8 +119,6 @@ namespace ALauncher.ViewModel
                 case 1:
                     if (_settings.IsSteamVersion)
                     {
-                        //processName = EXPLORER;
-                        //arguments = "steam://rungameid/24720";
                         processName = steamPath;
                         arguments = "-applaunch 24720 " + arguments;
                     }
@@ -131,8 +128,6 @@ namespace ALauncher.ViewModel
                 case 2:
                     if (_settings.IsSteamVersion)
                     {
-                        //processName = EXPLORER;
-                        //arguments = "steam://rungameid/17390";
                         processName = steamPath;
                         arguments = "-applaunch 17390 " + arguments;
                     }
@@ -144,7 +139,6 @@ namespace ALauncher.ViewModel
             }
             try
             {
-                // Сделать чтобы аргументы работали и через стим
                 Process.Start(processName, arguments);
             }
             catch (Exception ex)

@@ -42,6 +42,8 @@
     
     <!-- Mods page -->
     <sys:String x:Key="ModsPageTitle">Моды</sys:String>
+    <sys:String x:Key="InstallWith">Установить с помощью</sys:String>
+    <sys:String x:Key="UninstallWith">Удалить с помощью</sys:String>
     
     <!-- Saves page -->
     <sys:String x:Key="SavesPageTitle">Сохранения</sys:String>
@@ -56,5 +58,5 @@
     <sys:String x:Key="RenameSaveBtnText">Переименовать</sys:String>
     <sys:String x:Key="DeleteSaveBtnText">Удалить</sys:String>
     <sys:String x:Key="AddSaveBtnText">Добавить</sys:String>
-    <sys:String x:Key="RenameWindowText">Введите новое имя:</sys:String>
+    <sys:String x:Key="RenameWindowText">Введите имя сохранения:</sys:String>
 </ResourceDictionary>

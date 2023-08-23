@@ -14,8 +14,7 @@
         <vm:ModsViewModel/>
     </Page.DataContext>
 
-    <!-- Height="450" -->
-    <Grid Background="White" Height="230" Width="600">
+    <Grid Background="White" Height="450" Width="600">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -50,11 +49,12 @@
                     CommandParameter="Spore ModAPI Easy Installer.exe">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Images/easy-installer-icon.ico"/>
-                    <TextBlock VerticalAlignment="Center">
-                        Установить с помощью
-                        <LineBreak/>
-                        ModAPI Easy Installer
-                    </TextBlock>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock VerticalAlignment="Center"
+                               Text="{DynamicResource InstallWith}"/>
+                        <TextBlock VerticalAlignment="Center"
+                                   Text="ModAPI Easy Installer"/>
+                    </StackPanel>
                 </StackPanel>
             </Button>
             <Button Height="45" Width="210" Margin="10"
@@ -63,11 +63,12 @@
                     CommandParameter="Spore ModAPI Easy Uninstaller.exe">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Images/easy-uninstaller-icon.ico"/>
-                    <TextBlock VerticalAlignment="Center">
-                        Удалить с помощью
-                        <LineBreak/>
-                        ModAPI Easy Uninstaller
-                    </TextBlock>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock VerticalAlignment="Center"
+                                   Text="{DynamicResource UninstallWith}"/>
+                        <TextBlock VerticalAlignment="Center"
+                                   Text="ModAPI Easy Uninstaller"/>
+                    </StackPanel>
                 </StackPanel>
             </Button>
         </StackPanel>

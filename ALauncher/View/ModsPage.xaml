@@ -19,6 +19,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <StackPanel Background="{StaticResource PagesTopPanelBackground}" Orientation="Horizontal">
@@ -31,18 +34,31 @@
                        Margin="230,0,0,0"/>
         </StackPanel>
 
-        <TextBlock Grid.Row="1" Style="{StaticResource LauncherTextBlockStyle}" TextWrapping="WrapWithOverflow">
-            ALauncher пока использует ModAPI Launcher Kit для установки и
-            удаления модов, поэтому убедитесь, что у вас установлен
-            ModAPI Launcher Kit. В противном случае вам придётся
-            устанавливать моды вручную.
-            <LineBreak/>
-            <LineBreak/>
-            P.S. В будущем ALauncher сможет самостоятельно
-            устанавливать и удалять моды.
-        </TextBlock>
+        <TextBlock Style="{StaticResource LauncherTextBlockStyle}"
+                   Text="{DynamicResource ModsPageText}"
+                   FontSize="20"
+                   Grid.Row="1"/>
+        <ListBox Grid.Row="2"
+                  Height="250"
+                  Margin="10,0,10,0"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="{DynamicResource InstallBtn}"
+                    Style="{StaticResource GreenButtonStyle}"
+                    Width="100"/>
+            <Button Content="{DynamicResource UninstallBtn}"
+                    Style="{StaticResource OrangeButtonStyle}"
+                    Width="100"/>
+        </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="10" HorizontalAlignment="Center">
+        <!-- ModAPI Launcher Kit -->
+        <TextBlock Grid.Row="4"
+                   Style="{StaticResource LauncherTextBlockStyle}"
+                   Text="{DynamicResource ModAPIEasyKit}"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   Margin="0"
+                   TextWrapping="WrapWithOverflow"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Center">
             <Button Height="45" Width="210" Margin="10"
                     Style="{StaticResource GreenButtonStyle}"
                     Command="{Binding StartModsManagerCommand}"

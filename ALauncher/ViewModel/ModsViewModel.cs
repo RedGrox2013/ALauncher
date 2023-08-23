@@ -25,7 +25,7 @@ namespace ALauncher.ViewModel
 
             try
             {
-                Process.Start(_settings.ModAPIPath + "\\" + fileName);
+                Process.Start(_settings.ModAPIPath + "/" + fileName);
             }
             catch
             {

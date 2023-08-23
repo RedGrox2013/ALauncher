@@ -44,6 +44,13 @@
     <sys:String x:Key="ModsPageTitle">Моды</sys:String>
     <sys:String x:Key="InstallWith">Установить с помощью</sys:String>
     <sys:String x:Key="UninstallWith">Удалить с помощью</sys:String>
+    <sys:String x:Key="ModAPIEasyKit">
+        Вы также можете использовать инструменты из
+        ModAPI Launcher Kit
+    </sys:String>
+    <sys:String x:Key="ModsPageText">Ваши моды</sys:String>
+    <sys:String x:Key="InstallBtn">Установить</sys:String>
+    <sys:String x:Key="UninstallBtn">Удалить</sys:String>
     
     <!-- Saves page -->
     <sys:String x:Key="SavesPageTitle">Сохранения</sys:String>

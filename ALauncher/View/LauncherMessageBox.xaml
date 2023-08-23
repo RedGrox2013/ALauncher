@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ALauncher.View"
         mc:Ignorable="d"
+        Icon="../Images/Icon.ico"
         Width="500"
         SizeToContent="Height"
         ResizeMode="NoResize"

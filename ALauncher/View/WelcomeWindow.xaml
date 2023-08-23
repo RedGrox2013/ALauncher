@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ALauncher.View"
         xmlns:vm="clr-namespace:ALauncher.ViewModel"
         mc:Ignorable="d"
+        Icon="../Images/Icon.ico"
         Title="Добро пожаловать в ALauncher!"
         Height="401"
         Width="622"

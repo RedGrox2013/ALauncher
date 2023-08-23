@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ALauncher"
         xmlns:vm="clr-namespace:ALauncher.ViewModel"
         mc:Ignorable="d"
+        Icon="../Images/Icon.ico"
         Title="AloeLauncher"
         Height="694" Width="1066"
         MinHeight="645" MinWidth="850"

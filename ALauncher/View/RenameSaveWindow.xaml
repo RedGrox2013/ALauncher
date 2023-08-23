@@ -9,7 +9,7 @@
         Height="170" Width="450"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Icon="../Images/save-btn.png">
+        Icon="../Images/Icon.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

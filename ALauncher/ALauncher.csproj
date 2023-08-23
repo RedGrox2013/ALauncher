@@ -10,6 +10,7 @@
     <Authors>RedGrox</Authors>
     <Description>Spore Launcher</Description>
     <UseWindowsForms>True</UseWindowsForms>
+    <ApplicationIcon>Images\Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,6 +23,7 @@
     <None Remove="Images\files-btn.png" />
     <None Remove="Images\ga-icon.ico" />
     <None Remove="Images\go-back.png" />
+    <None Remove="Images\Icon.ico" />
     <None Remove="Images\MessageBox\error.png" />
     <None Remove="Images\MessageBox\information.png" />
     <None Remove="Images\MessageBox\question.png" />
@@ -35,6 +37,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Images\Icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Fonts\LauncherFont.TTF" />
     <Resource Include="Images\Background.jpg" />
     <Resource Include="Images\creations-btn.png" />
@@ -44,6 +50,7 @@
     <Resource Include="Images\files-btn.png" />
     <Resource Include="Images\ga-icon.ico" />
     <Resource Include="Images\go-back.png" />
+    <Resource Include="Images\Icon.ico" />
     <Resource Include="Images\MessageBox\warning.png" />
     <Resource Include="Images\MessageBox\question.png" />
     <Resource Include="Images\MessageBox\information.png" />

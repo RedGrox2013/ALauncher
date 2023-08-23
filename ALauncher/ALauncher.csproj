@@ -37,10 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\Icon.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Fonts\LauncherFont.TTF" />
     <Resource Include="Images\Background.jpg" />
     <Resource Include="Images\creations-btn.png" />

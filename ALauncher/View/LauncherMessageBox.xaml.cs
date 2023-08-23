@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Media;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace ALauncher.View
@@ -73,10 +71,9 @@ namespace ALauncher.View
             return msgBox._result;
         }
         public static void ShowModAPIError()
-            => Show("Пожалуйста, укажите путь до Spore ModAPI. " +
-                    "Если у вас не установлен Spore ModAPI Launcher, " +
-                    "вы можете сделать это в открывшемся окне",
-                    "Проверьте настройки", image:LauncherMessageBoxImage.Error);
+            => Show(Locale.GetLocaleString("ModAPIError"),
+                Locale.GetLocaleString("ModAPIErrorTitle"),
+                image: LauncherMessageBoxImage.Error);
 
         private void Btn_Click(object sender, RoutedEventArgs e)
         {

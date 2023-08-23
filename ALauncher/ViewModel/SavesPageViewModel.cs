@@ -1,5 +1,4 @@
 ﻿using ALauncher.View;
-using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
@@ -113,9 +112,8 @@ namespace ALauncher.ViewModel
                 return;
             }
 
-            var rez = LauncherMessageBox.Show(
-                "После удаления это сохранение нельзя будет восстановить. Удалить сохранение?",
-                "Вы уверены?",
+            var rez = LauncherMessageBox.Show(Locale.GetLocaleString("DeleteSave"),
+                Locale.GetLocaleString("AreYouSure"),
                 MessageBoxButton.YesNoCancel, LauncherMessageBoxImage.Warning);
             if (rez != MessageBoxResult.Yes)
                 return;
@@ -147,7 +145,7 @@ namespace ALauncher.ViewModel
         }
 
         private static void ShowIndexError()
-            => LauncherMessageBox.Show("Сначала выберите сохранение", "Ошибка!",
-                    image: LauncherMessageBoxImage.Error);
+            => LauncherMessageBox.Show(Locale.GetLocaleString("SelectSave"),
+                Locale.GetLocaleString("ErrorTitle"), image: LauncherMessageBoxImage.Error);
     }
 }

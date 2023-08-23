@@ -44,8 +44,8 @@ namespace ALauncher.ViewModel
         {
             if (string.IsNullOrWhiteSpace(ModAPIPath) && !_noModAPI)
             {
-                LauncherMessageBox.Show("Введите путь до ModAPI", "Ошибка!",
-                    image: LauncherMessageBoxImage.Error);
+                LauncherMessageBox.Show(Locale.GetLocaleString("EnterModAPIPath"),
+                    Locale.GetLocaleString("ErrorTitle"), image: LauncherMessageBoxImage.Error);
                 return;
             }
 

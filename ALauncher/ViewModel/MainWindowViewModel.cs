@@ -62,7 +62,7 @@ namespace ALauncher.ViewModel
         {
             if (_settings.IsSteamVersion && string.IsNullOrWhiteSpace(_settings.SteamPath))
             {
-                LauncherMessageBox.Show("Не найден Steam", "Ошибка!",
+                LauncherMessageBox.Show(Locale.GetLocaleString("SteamNotFound"), Locale.GetLocaleString("ErrorTitle"),
                     image:LauncherMessageBoxImage.Error);
                 return;
             }
@@ -107,8 +107,8 @@ namespace ALauncher.ViewModel
                             var steamProc = Process.GetProcessesByName("steam");
                             if (steamProc.Length == 0)
                             {
-                                LauncherMessageBox.Show("Дождитесь запуска Steam", "Steam не запущен",
-                                    image: LauncherMessageBoxImage.Warning);
+                                LauncherMessageBox.Show(Locale.GetLocaleString("SteamWait"),
+                                    Locale.GetLocaleString("SteamWaitTitle"), image: LauncherMessageBoxImage.Warning);
                                 Process.Start(steamPath);
                                 return;
                             }
@@ -143,7 +143,7 @@ namespace ALauncher.ViewModel
             }
             catch (Exception ex)
             {
-                LauncherMessageBox.Show(ex.Message, "Ошибка!",
+                LauncherMessageBox.Show(ex.Message, Locale.GetLocaleString("ErrorTitle"),
                     image: LauncherMessageBoxImage.Error);
             }
         }

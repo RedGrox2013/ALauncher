@@ -12,9 +12,23 @@
         вы можете сделать это в открывшемся окне.
     </sys:String>
     <sys:String x:Key="ModAPIErrorTitle">Проверьте настройки</sys:String>
+    <sys:String x:Key="ErrorTitle">Ошибка!</sys:String>
+    <sys:String x:Key="SteamNotFound">Не найден Steam</sys:String>
     <sys:String x:Key="CancelBtnText">Отмена</sys:String>
     <sys:String x:Key="NoBtnText">Нет</sys:String>
     <sys:String x:Key="YesBtnText">Да</sys:String>
+    <sys:String x:Key="SteamWait">Дождитесь запуска Steam</sys:String>
+    <sys:String x:Key="SteamWaitTitle">Steam не запущен</sys:String>
+    <sys:String x:Key="AreYouSure">Вы уверены?</sys:String>
+    <sys:String x:Key="SelectSave">Сначала выберите сохранение</sys:String>
+    <sys:String x:Key="EnterModAPIPath">Введите путь до ModAPI</sys:String>
+    <sys:String x:Key="DeleteSave">
+        После удаления это сохранение нельзя будет
+        восстановить. Удалить сохранение?
+    </sys:String>
+    
+    <!-- Exceptions -->
+    <sys:String x:Key="NotArgExc">Не указан аргумент</sys:String>
     
     <!-- Settings page -->
     <sys:String x:Key="SettingsPageTitle">Настройка/Дополнительно</sys:String>

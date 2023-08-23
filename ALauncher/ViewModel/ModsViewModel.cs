@@ -21,7 +21,7 @@ namespace ALauncher.ViewModel
         private void ModAPIKitStart(object? fileName)
         {
             if (fileName == null)
-                throw new Exception("Не указан аргумент");
+                throw new Exception(Locale.GetLocaleString("NotArgExc"));
 
             try
             {

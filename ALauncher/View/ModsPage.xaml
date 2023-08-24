@@ -44,9 +44,11 @@
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="{DynamicResource InstallBtn}"
                     Style="{StaticResource GreenButtonStyle}"
+                    Command="{Binding InstallModCommand}"
                     Width="100"/>
             <Button Content="{DynamicResource UninstallBtn}"
                     Style="{StaticResource OrangeButtonStyle}"
+                    Command="{Binding UninstallModCommand}"
                     Width="100"/>
         </StackPanel>
 

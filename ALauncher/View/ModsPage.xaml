@@ -14,8 +14,9 @@
         <vm:ModsViewModel/>
     </Page.DataContext>
 
-    <Grid Background="White" Height="450" Width="600">
+    <Grid Background="White" Height="460" Width="600">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -41,7 +42,8 @@
         <ListBox Grid.Row="2"
                   Height="250"
                   Margin="10,0,10,0"/>
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+        <ProgressBar Grid.Row="3" Margin="10,0,10,0"/>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="{DynamicResource InstallBtn}"
                     Style="{StaticResource GreenButtonStyle}"
                     Command="{Binding InstallModCommand}"
@@ -53,14 +55,14 @@
         </StackPanel>
 
         <!-- ModAPI Launcher Kit -->
-        <TextBlock Grid.Row="4"
+        <TextBlock Grid.Row="5"
                    Style="{StaticResource LauncherTextBlockStyle}"
                    Text="{DynamicResource ModAPIEasyKit}"
                    VerticalAlignment="Bottom"
                    HorizontalAlignment="Center"
                    Margin="0"
                    TextWrapping="WrapWithOverflow"/>
-        <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Grid.Row="6" HorizontalAlignment="Center">
             <Button Height="45" Width="210" Margin="10"
                     Style="{StaticResource GreenButtonStyle}"
                     Command="{Binding StartModsManagerCommand}"

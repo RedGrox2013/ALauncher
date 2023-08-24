@@ -13,25 +13,35 @@ namespace ALauncher.ViewModel
         public ICommand InstallModCommand { get; private set; }
         public ICommand UninstallModCommand { get; private set; }
 
-        private const string MODAPI_URL = "http://davoonline.com/sporemodder/rob55rod/ModAPI/Public/index.html";
-
         public ModsViewModel()
         {
             _settings = Settings.Instance;
 
             StartModsManagerCommand = new RelayCommand(ModAPIKitStart);
-            InstallModCommand = new RelayCommand(UninstallMod);
+            InstallModCommand = new RelayCommand(InstallMod);
             UninstallModCommand = new RelayCommand(UninstallMod);
+        }
+
+        private void InstallMod(object? obj)
+        {
+            if (string.IsNullOrWhiteSpace(_settings.ModAPIPath))
+            {
+                ShowError();
+                return;
+            }
+
+            LauncherMessageBox.Show("В разработке");
         }
 
         private void UninstallMod(object? obj)
         {
             if (string.IsNullOrWhiteSpace(_settings.ModAPIPath))
             {
-                LauncherMessageBox.ShowModAPIError();
-                Process.Start("explorer.exe", MODAPI_URL);
+                ShowError();
                 return;
             }
+
+            LauncherMessageBox.Show("В разработке");
         }
 
         private void ModAPIKitStart(object? fileName)
@@ -45,9 +55,15 @@ namespace ALauncher.ViewModel
             }
             catch
             {
-                LauncherMessageBox.ShowModAPIError();
-                Process.Start("explorer.exe", MODAPI_URL);
+                ShowError();
             }
+        }
+
+        private static void ShowError()
+        {
+            LauncherMessageBox.ShowModAPIError();
+            Process.Start("explorer.exe",
+                "http://davoonline.com/sporemodder/rob55rod/ModAPI/Public/index.html");
         }
     }
 }

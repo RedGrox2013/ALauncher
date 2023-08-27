@@ -4,6 +4,12 @@
     <!-- Main page and window -->
     <sys:String x:Key="MainPageTitle">ЛАУНЧЕР ДЛЯ SPORE</sys:String>
     <sys:String x:Key="EnterTheGame">Войти в игру</sys:String>
+    <sys:String x:Key="AccountsToolTip">Только для владельцев аккаунтов на spore.com</sys:String>
+    <sys:String x:Key="GameForStartToolTip">Игра для запуска</sys:String>
+    <sys:String x:Key="SavesBtnToolTip">Сохранения</sys:String>
+    <sys:String x:Key="CreationsBtnToolTip">Мои творения</sys:String>
+    <sys:String x:Key="FilesBtnToolTip">Файлы</sys:String>
+    <sys:String x:Key="SettingsBtnToolTip">Настройки</sys:String>
     
     <!-- Launcher message box -->
     <sys:String x:Key="ModAPIError">
@@ -66,4 +72,6 @@
     <sys:String x:Key="DeleteSaveBtnText">Удалить</sys:String>
     <sys:String x:Key="AddSaveBtnText">Добавить</sys:String>
     <sys:String x:Key="RenameWindowText">Введите имя сохранения:</sys:String>
+
+    <sys:String x:Key="InDeveloping">В разработке...</sys:String>
 </ResourceDictionary>

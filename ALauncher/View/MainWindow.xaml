@@ -62,16 +62,15 @@
             <!--Аккаунты-->
             <ComboBox Margin="10,20"
                       Height="25"
-                      ToolTip="Только для владельцев аккаунтов на spore.com">
-                <TextBlock>В разработке...</TextBlock>
+                      ToolTip="{DynamicResource AccountsToolTip}">
+                <ComboBoxItem Content="{DynamicResource InDeveloping}"/>
             </ComboBox>
             <!--Версия для запуска-->
-            <ComboBox Name="GamesList"
-                      Margin="10,20"
+            <ComboBox Margin="10,20"
                       Height="25"
                       Grid.Column="1"
                       SelectedIndex="{Binding SelectedGameIndex, UpdateSourceTrigger=PropertyChanged}"
-                      ToolTip="Игра для запуска">
+                      ToolTip="{DynamicResource GameForStartToolTip}">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Images/modapi-icon.ico" Width="20" Height="20"/>
                     <TextBlock Margin="3" VerticalAlignment="Center">Spore ModAPI Launcher</TextBlock>
@@ -100,21 +99,21 @@
             <!--Сохранения-->
             <Button Grid.Column="3"
                     Style="{StaticResource BtnStyle}"
-                    ToolTip="Сохранения"
+                    ToolTip="{DynamicResource SavesBtnToolTip}"
                     Command="{Binding SavesBtnCommand}">
                 <Image Source="../Images/save-btn.png"/>
             </Button>
             <!--Моды-->
             <Button Grid.Column="4"
                     Style="{StaticResource BtnStyle}"
-                    ToolTip="Моды"
+                    ToolTip="{DynamicResource ModsPageTitle}"
                     Command="{Binding ModsBtnCommand}">
                 <Image Source="../Images/mods-btn.png"/>
             </Button>
             <!--Творения-->
             <Button Grid.Column="5"
                     Style="{StaticResource BtnStyle}"
-                    ToolTip="Мои творения"
+                    ToolTip="{DynamicResource CreationsBtnToolTip}"
                     Command="{Binding ShowExplorerCommand}"
                     CommandParameter="{Binding MySporeCreationsPath}">
                 <Image Source="../Images/creations-btn.png"/>
@@ -122,7 +121,7 @@
             <!--Файлы-->
             <Button Grid.Column="6"
                     Style="{StaticResource BtnStyle}"
-                    ToolTip="Файлы"
+                    ToolTip="{DynamicResource FilesBtnToolTip}"
                     Command="{Binding ShowExplorerCommand}"
                     CommandParameter="{Binding MainSporePath}">
                 <Image Source="../Images/files-btn.png"/>
@@ -130,7 +129,7 @@
             <!--Настройки-->
             <Button Grid.Column="7"
                     Style="{StaticResource BtnStyle}"
-                    ToolTip="Настройки"
+                    ToolTip="{DynamicResource SettingsBtnToolTip}"
                     Command="{Binding SettingsBtnCommand}">
                 <Image Source="../Images/settings-btn.png"/>
             </Button>

@@ -26,6 +26,9 @@ namespace ModsManager
         [XmlAttribute("causesSaveDataDependency")]
         public bool CausesSaveDataDependency { get; set; }
 
+        [XmlElement("prerequisite")]
+        public ModPrerequisite Prerequisite { get; set; }
+
         public Mod() : this("unknown", "unknown", "1.0.1.0", "2.5.20") { }
         public Mod(string name, string unique, string installerSystemVersion,
             string dllsBuild, string? description = null, bool hasCustomInstaller = false,

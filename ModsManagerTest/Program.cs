@@ -7,7 +7,14 @@ var input = Console.ReadLine();
 string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/test.xml";
 if (input == "s")
 {
-    Mod mod = new();
+    Mod mod = new()
+    {
+        Prerequisite = new ModPrerequisite()
+        {
+            File = "test",
+            Game = "Spore"
+        }
+    };
     using var stream = File.Create(path);
     xmlSerializer.Serialize(stream, mod);
 }

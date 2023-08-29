@@ -1,5 +1,6 @@
-<mod name="unknown" displayName="unknown" unique="unknown" installerSystemVersion="1.0.1.0" hasCustomInstaller="false" dllsBuild="2.5.20" isExperimental="false" requiresGalaxyReset="false" causesSaveDataDependency="false">
-  <prerequisite game="Spore">test1?test2</prerequisite>
-  <prerequisite game="GalacticAdventures">test3?test4?test5</prerequisite>
-  <prerequisite>test6</prerequisite>
+<mod name="unknown" displayName="unknown" unique="unknown" installerSystemVersion="1.0.1.0" hasCustomInstaller="ывыв" dllsBuild="2.5.20" isExperimental="false" requiresGalaxyReset="false" causesSaveDataDependency="false">
+	<prerequisite game="Spore">test1?test2</prerequisite>
+	<prerequisite game="GalacticAdventures">test3?test4?test5</prerequisite>
+	<prerequisite>test6</prerequisite>
+	<compatFile compatTargetFileName="tst">compatFile1?compatFile2</compatFile>
 </mod>

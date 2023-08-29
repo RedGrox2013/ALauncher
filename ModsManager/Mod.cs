@@ -30,6 +30,20 @@ namespace ModsManager
         public bool RequiresGalaxyReset { get; set; }
         public bool CausesSaveDataDependency { get; set; }
 
+        private List<ModPrerequisite>? _prerequisites;
+        public int PrerequisitesCount => _prerequisites == null ? 0 : _prerequisites.Count;
+        public void AddPrerequisite(ModPrerequisite prerequisite)
+        {
+            _prerequisites ??= new List<ModPrerequisite>();
+            _prerequisites.Add(prerequisite);
+        }
+        public ModPrerequisite GetPrerequisiteAt(int index)
+        {
+            if (_prerequisites == null || index < 0 || index >= PrerequisitesCount)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            return _prerequisites[index];
+        }
+
         public static Mod ParseXML(string path)
         {
             Mod mod = new();
@@ -52,6 +66,15 @@ namespace ModsManager
                         mod.IsExperimental = GetAttributeValue(reader, "isExperimental");
                         mod.RequiresGalaxyReset = GetAttributeValue(reader, "requiresGalaxyReset");
                         mod.CausesSaveDataDependency = GetAttributeValue(reader, "causesSaveDataDependency");
+                    }
+                    else if (reader.Name == "prerequisite")
+                    {
+                        mod.AddPrerequisite(new ModPrerequisite
+                        {
+                            Game = reader.GetAttribute("game"),
+                            Files = reader.ReadElementContentAsString().Split('?')
+                        });
+                        continue;
                     }
                 }
                 reader.Read();

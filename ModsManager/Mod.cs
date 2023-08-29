@@ -6,10 +6,25 @@ namespace ModsManager
     {
         public string? Name { get; set; }
         public string? DisplayName { get; set; }
-        public string? Unique { get; set; }
+        private string? _unique;
+        public string Unique
+        {
+            get => _unique ??= "unknown";
+            set => _unique = value;
+        }
         public string? Description { get; set; }
-        public string InstallerSystemVersion { get; set; } = "1.0.1.0";
-        public string DllsBuild { get; set; } = "2.5.20";
+        private string? _installerSystemVersion;
+        public string InstallerSystemVersion
+        {
+            get => _installerSystemVersion ??= "1.0.1.0";
+            set => _installerSystemVersion = value;
+        }
+        private string? _dllsBuild;
+        public string DllsBuild
+        {
+            get => _dllsBuild ??= "2.5.20";
+            set => _dllsBuild = value;
+        }
         public bool HasCustomInstaller { get; set; }
         public bool IsExperimental { get; set; }
         public bool RequiresGalaxyReset { get; set; }
@@ -25,7 +40,7 @@ namespace ModsManager
                 {
                     if (reader.Name == "mod")
                     {
-                        mod.Unique = reader.GetAttribute("unique");
+                        mod.Unique = reader.GetAttribute("unique") ?? mod.Unique;
                         mod.Name = reader.GetAttribute("name") ?? mod.Unique;
                         mod.DisplayName = reader.GetAttribute("displayName") ?? mod.Name;
                         mod.Description = reader.GetAttribute("description");
@@ -38,10 +53,8 @@ namespace ModsManager
                         mod.RequiresGalaxyReset = GetAttributeValue(reader, "requiresGalaxyReset");
                         mod.CausesSaveDataDependency = GetAttributeValue(reader, "causesSaveDataDependency");
                     }
-                    reader.Read();
                 }
-                else
-                    reader.Read();
+                reader.Read();
             }
 
             return mod;
@@ -53,6 +66,14 @@ namespace ModsManager
             if (value != null)
                 return bool.Parse(value);
             return defaultValue;
+        }
+
+        public override string ToString()
+        {
+            if (Name == null && DisplayName == null)
+                return Unique;
+
+            return $"{Unique} ({DisplayName ?? Name})";
         }
     }
 }

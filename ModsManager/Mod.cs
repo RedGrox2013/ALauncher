@@ -30,18 +30,32 @@ namespace ModsManager
         public bool RequiresGalaxyReset { get; set; }
         public bool CausesSaveDataDependency { get; set; }
 
+        public const char FILES_SEPARATOR = '?';
+
         private List<Prerequisite>? _prerequisites;
-        public int PrerequisitesCount => _prerequisites == null ? 0 : _prerequisites.Count;
+        public int PrerequisitesCount => _prerequisites?.Count ?? 0;
         public void AddPrerequisite(Prerequisite prerequisite)
-        {
-            _prerequisites ??= new List<Prerequisite>();
-            _prerequisites.Add(prerequisite);
-        }
+            => AddElement(prerequisite, ref _prerequisites);
         public Prerequisite GetPrerequisiteAt(int index)
+            => GetElementAt(index, _prerequisites);
+
+        private List<CompatFile>? _compatFiles;
+        public int CompatFilesCount => _compatFiles?.Count ?? 0;
+        public CompatFile GetCompatFileAt(int index)
+            => GetElementAt(index, _compatFiles);
+        public void AddCompatFile(CompatFile compatFile)
+            => AddElement(compatFile, ref _compatFiles);
+
+        private static T GetElementAt<T>(int index, List<T>? list)
         {
-            if (_prerequisites == null || index < 0 || index >= PrerequisitesCount)
+            if (list == null)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            return _prerequisites[index];
+            return list[index];
+        }
+        private static void AddElement<T>(T element, ref List<T>? list)
+        {
+            list ??= new List<T>();
+            list.Add(element);
         }
 
         public static Mod ParseXML(string path)
@@ -72,11 +86,24 @@ namespace ModsManager
                         mod.AddPrerequisite(new Prerequisite
                         {
                             Game = reader.GetAttribute("game"),
-                            Files = reader.ReadElementContentAsString().Split('?')
+                            Files = reader.ReadElementContentAsString().Split(FILES_SEPARATOR)
                         });
                         continue;
                     }
-                    // доделать compatFile
+                    else if (reader.Name == "compatFile")
+                    {
+                        mod.AddCompatFile(new CompatFile
+                        {
+                            CompatTargetFileName = reader.GetAttribute("compatTargetFileName")
+                                ?.Split(FILES_SEPARATOR),
+                            CompatTargetGame = reader.GetAttribute("compatTargetGame")
+                                ?.Split(FILES_SEPARATOR),
+                            Game = reader.GetAttribute("game")?.Split(FILES_SEPARATOR),
+                            RemoveTargets = GetAttributeValue(reader, "removeTargets"),
+                            Files = reader.ReadElementContentAsString().Split(FILES_SEPARATOR)
+                        });
+                        continue;
+                    }
                 }
                 reader.Read();
             }

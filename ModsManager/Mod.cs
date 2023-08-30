@@ -46,6 +46,13 @@ namespace ModsManager
         public void AddCompatFile(CompatFile compatFile)
             => AddElement(compatFile, ref _compatFiles);
 
+        private List<Component>? _components;
+        public int ComponentsCount => _components?.Count ?? 0;
+        public Component GetComponentAt(int index)
+            => GetElementAt(index, _components);
+        public void AddComponent(Component component)
+            => AddElement(component, ref _components);
+
         private static T GetElementAt<T>(int index, List<T>? list)
         {
             if (list == null)
@@ -102,6 +109,26 @@ namespace ModsManager
                             RemoveTargets = GetAttributeValue(reader, "removeTargets"),
                             Files = reader.ReadElementContentAsString().Split(FILES_SEPARATOR)
                         });
+                        continue;
+                    }
+                    else if (reader.Name == "component")
+                    {
+                        string? displayName = reader.GetAttribute("displayName"),
+                            unique = reader.GetAttribute("unique");
+                        if (displayName == null || unique == null)
+                            throw new NullReferenceException(
+                                "The component does not have a \"displayName\" or \"unique\" attribute.");
+                        Component component = new
+                            (
+                                displayName, unique,
+                                reader.GetAttribute("game")?.Split(FILES_SEPARATOR),
+                                reader.GetAttribute("description")
+                            );
+                        if (Enum.TryParse(reader.GetAttribute("imagePlacement"), true,
+                                out ImagePlacement imagePlacement))
+                            component.ImagePlacement = imagePlacement;
+                        component.Files = reader.ReadElementContentAsString().Split(FILES_SEPARATOR);
+                        mod.AddComponent(component);
                         continue;
                     }
                 }

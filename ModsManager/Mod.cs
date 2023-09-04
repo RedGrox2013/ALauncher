@@ -92,7 +92,7 @@ namespace ModsManager
                     {
                         mod.AddPrerequisite(new Prerequisite
                         {
-                            Game = reader.GetAttribute("game"),
+                            Game = reader.GetAttribute("game")?.Split(FILES_SEPARATOR),
                             Files = reader.ReadElementContentAsString().Split(FILES_SEPARATOR)
                         });
                         continue;

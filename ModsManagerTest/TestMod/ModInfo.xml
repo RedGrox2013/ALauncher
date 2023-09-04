@@ -1,0 +1,4 @@
+<mod displayName="RedGrox city objects" unique="RedGrox_CO" description="Мод на новые декорации для городов. Нажмите Install для установки." installerSystemVersion="1.0.1.0" hasCustomInstaller="true" dllsBuild="2.5.20">
+	<component unique="RedGrox_city_objects_EP1" displayName="Объекты в РП" description="Дополнение к основному моду. Добавляет эти объекты в редактор приключений." imagePlacement="After" game="GalacticAdventures" defaultChecked="false">RedGrox_city_objects_EP1.package</component>
+	<prerequisite game="GalacticAdventures">RedGrox_city_objects.package</prerequisite>
+</mod>

@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace ALauncher
 {
@@ -10,6 +12,10 @@ namespace ALauncher
         public MainWindow()
         {
             InitializeComponent();
+
+            var rand = new Random();
+            if (rand.Next(50) == 0)
+                BackgroundImage.Source = new BitmapImage(new Uri("pack://application:,,,/Images/secretbg.png"));
 
             if (Settings.Instance.IsFirstStart)
                 new WelcomeWindow().ShowDialog();

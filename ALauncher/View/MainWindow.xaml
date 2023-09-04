@@ -34,7 +34,7 @@
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
 
-        <Image Source="../Images/Background.jpg" Stretch="UniformToFill"/>
+        <Image Name="BackgroundImage" Source="../Images/Background.jpg" Stretch="UniformToFill"/>
         <Frame Content="{Binding CurrentPage, UpdateSourceTrigger=PropertyChanged}"
                NavigationUIVisibility="Hidden"/>
 

@@ -9,6 +9,7 @@
         public ImagePlacement ImagePlacement { get; set; }
 
         public string[]? Files { get; set; }
+        public bool Selected { get; set; }
 
         public Component(string displayName, string unique,
             string[]? game = null, string? description = null,

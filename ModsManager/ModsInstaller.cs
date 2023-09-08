@@ -1,4 +1,5 @@
 ﻿using ALauncher;
+using System.IO.Compression;
 
 namespace ModsManager
 {
@@ -7,14 +8,17 @@ namespace ModsManager
         private readonly static Settings _settings;
 
         public const string MODAPI_MODS_DIR = "/mLibs";
+        public const string MODAPI_MODS_CONFIG_DIR = "/ModConfigs";
 
         static ModsInstaller()
         {
             _settings = Settings.Instance;
         }
 
-        public static void InstallMod(Mod mod, string modConfigPath)
+        public static void InstallMod(Mod mod)
         {
+            string modConfigPath = _settings.ModAPIPath + MODAPI_MODS_CONFIG_DIR + "/" + mod.Unique;
+
             for (int i = 0; i < mod.PrerequisitesCount; i++)
             {
                 Prerequisite prerequisite = mod.GetPrerequisiteAt(i);
@@ -54,6 +58,16 @@ namespace ModsManager
                 if (!File.Exists(path))
                     File.Copy(modConfigPath + "/" + files[i], path);
             }
+        }
+
+        public static Mod UnpackSporemod(string path)
+        {
+            string modConfigPath = _settings.ModAPIPath + MODAPI_MODS_CONFIG_DIR + "/temp";
+            ZipFile.ExtractToDirectory(path, modConfigPath, true);
+            Mod mod = Mod.ParseXML(modConfigPath + "/ModInfo.xml");
+            Directory.Move(modConfigPath, _settings.ModAPIPath + MODAPI_MODS_CONFIG_DIR + "/" + mod.Unique);
+
+            return mod;
         }
     }
 }

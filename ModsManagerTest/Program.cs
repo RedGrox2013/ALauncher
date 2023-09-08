@@ -1,7 +1,10 @@
-﻿using ModsManager;
+﻿using ALauncher;
+using ModsManager;
 
-const string path = "TestMod";
-var mod = Mod.ParseXML(path + "/ModInfo.xml");
+Settings.Instance.ModAPIPath = "D:\\Games\\Spore ModAPI Launcher Kit";
+
+Console.Write("Enter .sporemod path: ");
+var mod = ModsInstaller.UnpackSporemod(Console.ReadLine() ?? string.Empty);
 Console.WriteLine(mod);
 
 for (int i = 0; i < mod.ComponentsCount; i++)
@@ -13,4 +16,4 @@ for (int i = 0; i < mod.ComponentsCount; i++)
     component.Selected = choice?.ToLower() == "y";
 }
 
-ModsInstaller.InstallMod(mod, path);
+ModsInstaller.InstallMod(mod);

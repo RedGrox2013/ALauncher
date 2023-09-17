@@ -65,6 +65,13 @@ namespace ModsManager
             list.Add(element);
         }
 
+        public void SetComponentSelectedAt(int index, bool value)
+        {
+            if (_components == null)
+                throw new NullReferenceException();
+            _components[index].Selected = value;
+        }
+
         public static Mod ParseXML(string path)
         {
             Mod mod = new();

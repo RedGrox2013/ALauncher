@@ -13,7 +13,7 @@ for (int i = 0; i < mod.ComponentsCount; i++)
     Console.Write(component.DisplayName + "\n" +
         component.Description + "\nInstall? (y/n) ");
     var choice = Console.ReadLine();
-    component.Selected = choice?.ToLower() == "y";
+    mod.SetComponentSelectedAt(i, choice?.ToLower() == "y");
 }
 
 ModsInstaller.InstallMod(mod);

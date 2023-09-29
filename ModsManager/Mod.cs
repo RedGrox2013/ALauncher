@@ -53,6 +53,13 @@ namespace ModsManager
         public void AddComponent(Component component)
             => AddElement(component, ref _components);
 
+        private List<Remove>? _removes;
+        public int RemovesCount => _removes?.Count ?? 0;
+        public Remove GetRemoveAt(int index)
+            => GetElementAt(index, _removes);
+        public void AddRemove(Remove remove)
+            => AddElement(remove, ref _removes);
+
         private static T GetElementAt<T>(int index, List<T>? list)
         {
             if (list == null)

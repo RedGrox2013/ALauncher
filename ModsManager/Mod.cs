@@ -145,6 +145,15 @@ namespace ModsManager
                         mod.AddComponent(component);
                         continue;
                     }
+                    else if (reader.Name == "remove")
+                    {
+                        mod.AddRemove(new Remove
+                        {
+                            Games = reader.GetAttribute("game")?.Split(FILES_SEPARATOR),
+                            Files = reader.ReadElementContentAsString().Split(FILES_SEPARATOR)
+                        });
+                        continue;
+                    }
                 }
                 reader.Read();
             }

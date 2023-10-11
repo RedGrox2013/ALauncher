@@ -33,6 +33,8 @@ namespace ModsManager
 
                 CopyFiles(component.Files, component.Game, modConfigPath);
             }
+
+            // TODO: удаление файлов с тегом <remove>
         }
 
         private static void CopyFiles(string[]? files, string[]? game, string modConfigPath)
@@ -63,6 +65,9 @@ namespace ModsManager
         public static Mod UnpackSporemod(string path)
         {
             string modConfigPath = _settings.ModAPIPath + MODAPI_MODS_CONFIG_DIR + "/temp";
+            if (Directory.Exists(modConfigPath))
+                Directory.Delete(modConfigPath, true);
+
             ZipFile.ExtractToDirectory(path, modConfigPath, true);
             Mod mod = Mod.ParseXML(modConfigPath + "/ModInfo.xml");
             Directory.Move(modConfigPath, _settings.ModAPIPath + MODAPI_MODS_CONFIG_DIR + "/" + mod.Unique);
